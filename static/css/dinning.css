@@ -109,10 +109,73 @@
     height: auto;
     transition: .5s;
 }
-.dinning_tea_column{
+.dinning_tea_image_box:hover .dinning_tea_image {
+    transform: scale(1.1);
+    cursor: grab;
+}
+.dinning_tea_image_box{
     max-width: 290px;
     overflow: hidden;
+    max-height: 360px;
 }
-.dinning_tea_image:hover{
-    transform: scale(1.2);
+.dinning_tea_column{
+    max-width: 290px;
+}
+.dinning_tea_content{
+    display: flex;
+    gap: 30px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+.dinning_tea_box{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 50px;
+    margin-top: 50px;
+}
+.dinning_instagram_image{
+    max-width: 210px;
+    max-height: 210px;
+}
+.dinning_instagram_logo{
+    width: 15px;
+    height: 15px;
+}
+.dinning_instagram_profile{
+    font-family: var(--neue-font);
+    font-size: 10px;
+    letter-spacing: 3px;
+}
+.dinning_instagram_content{
+    display: flex;
+    gap: 12px;
+    align-items: center;
+}
+.dinning_instagram_column{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.dinning_instagram_box{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+}
+.dinning_instagram_description{
+    font-family: var(--mon-font);
+    font-size: 18px;
+}
+.dinning_instagram_title{
+    font-family: var(--neue-font);
+    font-size: 24px;
+    letter-spacing: 2px;
+}
+.dinning_end_instagram_container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+    margin-top: 100px;
+    margin-bottom: 100px;
 }
