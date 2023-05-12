@@ -1,0 +1,85 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Four Seasons dinning reservation{% endblock %}
+{% block content %}
+    <div class="dinning_start_title">
+        ICONIC DINING DESTINATIONS
+    </div>
+    <div class="dinning_example_box">
+        <div class="dinning_example_item">
+            <img src="{% static 'dinning_page/LON_1788_original.jpg' %}" alt="" class="dinning_example_image">
+            <div class="dinning_example_title">Creative Modern Cuisine In The Heart of London</div>
+            <div class="dinning_example_text">A stone’s throw from London’s top designer districts and the greenery of Hyde Park, take a front row seat at Michelin-starred Chef Yannick Alleno’s culinary theatre, as the best of British cuisine and the time-honoured techniques of French gastronomy are brought to life before you at Pavyllon London.</div>
+        </div>
+        <div class="dinning_example_item">
+                <img src="{% static 'dinning_page/OTE_429_original.jpg' %}" alt="" class="dinning_example_image">
+                <div class="dinning_example_title">French Flair Shaped By The Japanese Terroir</div>
+                <div class="dinning_example_text">Combining sky-high dining with the electric energy of downtown Tokyo, experience Guillaume Bracaval’s contemporary French cuisine that is rooted in the Japanese terroir. At est, enjoy a feast for the eyes as well as the palate, with panoramic rooftop views of Tokyo’s iconic skyline.</div>
+        </div>
+        <div class="dinning_example_item">
+            <img src="{% static 'dinning_page/MFL_980_original.jpg' %}" alt="" class="dinning_example_image">
+            <div class="dinning_example_title">Classic Surf Club Glamour With A Modern Twist</div>
+            <div class="dinning_example_text">Drink, dine and delight in the fabled footsteps of Hollywood’s finest, as the palm-fringed surroundings of The Champagne Bar recall the soulful charm and oceanfront glamour of The Surf Club’s early years and the energetic bartenders conjure up modern classics for a whole new era.</div>
+        </div>
+    </div>
+    <div class="dinning_start_title">
+        AWARD-WINNING DINING
+    </div>
+    <div class="dinning_carusel">
+        <div class="dinning_carusel_item">
+            <img src="{% static 'dinning_page/carusel/photo_1_2023-05-10_20-00-14.jpg' %}" alt="" class="dinning_carusel_image">
+            <div class="dinning_carusel_name">Le Cinq</div>
+            <div class="dinning_carusel_title">Ham, Mushrooms and Truffle Spaghetti Gratin</div>
+            <div class="dinning_carusel_text">Paying tribute to the dish Chef Christian Le Squer’s mother would lovingly prepare every Wednesday, this artistic reinvention is crowned by aromatic truffles and a gold leaf timbale.</div>
+        </div>
+        <div class="dinning_carusel_item">
+            <img src="{% static 'dinning_page/carusel/photo_2_2023-05-10_20-00-14.jpg' %}" alt="" class="dinning_carusel_image">
+            <div class="dinning_carusel_name">Capa</div>
+            <div class="dinning_carusel_title">BONE-IN FILET</div>
+            <div class="dinning_carusel_text">Wood-grilled to perfection over American oak, this melt-in-your-mouth Creekstone Farms bone-in filet showcases a unique flavour profile derived from a secret adobo marinade.</div>
+        </div>
+        <div class="dinning_carusel_item">
+                <img src="{% static 'dinning_page/carusel/photo_8_2023-05-10_20-00-14.jpg' %}" alt="" class="dinning_carusel_image">
+                <div class="dinning_carusel_name">Lung King Heen</div>
+                <div class="dinning_carusel_title">Baked Whole Abalone Puff with Diced Chicken</div>
+                <div class="dinning_carusel_text">Rich buttery layers of homemade pastry cradle a tender diced chicken filling, with a whole abalone sea snail that is glazed and cooked for eight hours to elevate the umami flavour.</div>
+        </div>
+        <div class="dinning_carusel_item">
+                <img src="{% static 'dinning_page/carusel/photo_6_2023-05-10_20-00-14.jpg' %}" alt="" class="dinning_carusel_image">
+                <div class="dinning_carusel_name">La Dame de Pic London</div>
+                <div class="dinning_carusel_title">Les Berlingots ASP ©</div>
+                <div class="dinning_carusel_text">With a delicious filling that evolves and changes as each new season unfolds, these delicate home-made pasta parcels are inspired by Chef Anne-Sophie Pic’s favourite childhood sweets.</div>
+        </div>
+        <div class="dinning_carusel_item">
+                <img src="{% static 'dinning_page/carusel/photo_3_2023-05-10_20-00-14.jpg' %}" alt="" class="dinning_carusel_image">
+                <div class="dinning_carusel_name">est</div>
+                <div class="dinning_carusel_title">peau de soja</div>
+                <div class="dinning_carusel_text">Chef Guillaume presents a cloud-like creation rooted in French cuisine and shaped by the Japanese terroir, as a tofu and soy milk siphon combines with citrus and fennel flower aromas.</div>
+        </div>
+        <div class="dinning_carusel_item">
+                <img src="{% static 'dinning_page/carusel/photo_5_2023-05-10_20-00-14.jpg' %}" alt="" class="dinning_carusel_image">
+                <div class="dinning_carusel_name">Le George</div>
+                <div class="dinning_carusel_title">Candied Tomatoes Tarte Tatin, Cacio E Pepe Ice Cream</div>
+                <div class="dinning_carusel_text">An Italian take on a French culinary classic, sweet candied tomatoes and peppery Pecorino cheese sit atop a delicate “pâte feuilletée” that brings crispness and texture to every bite.</div>
+        </div>
+        <div class="dinning_carusel_item">
+                <img src="{% static 'dinning_page/carusel/photo_7_2023-05-10_20-00-14.jpg' %}" alt="" class="dinning_carusel_image">
+                <div class="dinning_carusel_name">Cura</div>
+                <div class="dinning_carusel_title">Squid with Hazelnuts, Roasted Seaweed Butter and Caviar</div>
+                <div class="dinning_carusel_text">Delicate strands of fresh squid tagliatelle float upon a caviar-topped hazelnut sauce, while the squid’s own dried and roasted ink and gold leaf provide a dramatic artistic finish.</div>
+        </div>
+        <div class="dinning_carusel_item">
+                <img src="{% static 'dinning_page/carusel/photo_4_2023-05-10_20-00-14.jpg' %}" alt="" class="dinning_carusel_image">
+                <div class="dinning_carusel_name">Yu Yue Heen</div>
+                <div class="dinning_carusel_title">Barbecued Pork Belly</div>
+                <div class="dinning_carusel_text">The signature dish of Michelin-starred Chef Yu Yue Heen, dark-skinned pork is meticulously cleaned, poached, marinated, air-dried and then barbecued for a remarkable taste sensation.</div>
+        </div>
+    <div class="counter_box">
+        <a class="din_prev" onclick="plusSlideDin(-1)">&#10094;</a>
+        <div class="counter"><span class="counter_item">1 </span>/ 8</div>
+        <a class="din_next" onclick="plusSlideDin(1)">&#10095;</a>
+    </div>
+    </div>
+
+
+{% endblock %}

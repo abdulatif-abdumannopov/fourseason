@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}{% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'css/main.css' %}">
+    <link rel="stylesheet" href="{% static 'css/home.css' %}">
+    <link rel="stylesheet" href="{% static 'css/maldives.css' %}">
+    <link rel="stylesheet" href="{% static 'css/residents.css' %}">
+    <link rel="stylesheet" href="{% static 'css/dinning.css' %}">
+</head>
+<body>
+    <header>
+        <div class="head">
+            <a href="{% url 'home' %}"><img class="logo" src="{% static 'logo/four-seasons-hotels-limited-vector-logo.svg' %}" alt=""></a>
+            <ul class="links_navigation">
+                <li class="nav_links"><a href="{% url 'maldives' %}" class="nav_links_item">HOTEL & RESORTS</a></li>
+                <li class="nav_links"><a href="#" class="nav_links_item">SHOP</a></li>
+                <li class="nav_links"><a href="{% url 'dining' %}" class="nav_links_item">DINING</a></li>
+                <li class="nav_links"><a href="{% url 'residents' %}" class="nav_links_item">RESIDENTS</a></li>
+                <li class="nav_links"><a href="" class="nav_links_item">HISTORY</a></li>
+            </ul>
+            <a class="nav_button" href="">CHECK RATES</a>
+        </div>
+    </header>
+    {% block content %}
+
+    {% endblock %}
+    <footer>
+        <img class="footer_logo" alt="" src="{% static 'logo/four-seasons-white.svg' %}">
+        <div class="footer_box">
+            <div class="colum">
+                <div class="column_title">About</div>
+                <ul class="column_items">
+                    <li><a href="" class="column_items">about us</a></li>
+                    <li><a href="" class="column_items">careers</a></li>
+                    <li><a href="" class="column_items">contact us</a></li>
+                </ul>
+            </div>
+            <div class="colum">
+                <div class="column_title">Reservations</div>
+                <ul class="column_items">
+                    <li><a href="" class="column_items">find a reservation</a></li>
+                </ul>
+            </div>
+            <div class="colum">
+                <div class="column_title">More</div>
+                <ul class="column_items">
+                    <li><a href="" class="column_items">gift cards</a></li>
+                    <li><a href="" class="column_items">extraordinary <br> experiences</a></li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+    <script src="{% static 'js/home.js' %}"></script>
+    <script src="{% static 'js/resident.js' %}"></script>
+    <script src="{% static 'js/dinning.js' %}"></script>
+</body>
+</html>

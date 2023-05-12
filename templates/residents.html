@@ -1,0 +1,106 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Private Luxury Residents |  Service For Residents{% endblock %}
+{% block content %}
+    <div class="resident_start_text">
+        <div class="resident_start_title">THE DEFINITION OF LUXURY MODERN LIVING</div>
+        <div class="resident_start_content">Delivering legendary Four Seasons service, world-class amenities and a seamless ownership experience, in the world’s most sought-after locations.</div>
+    </div>
+        <div class="residents_onboard_box">
+            <div class="residents_onboard_column">
+                <img src="{% static 'residents_page/GSP_056_original.jpg' %}" alt="" class="resident_onboard_image">
+                <div class="residents_onboard_column_title">A CURATED LIFESTYLE</div>
+                <div class="residents_onboard_hr"></div>
+                <div class="residents_onboard_column_content">Through anticipatory service and meticulous attention to detail, our dedicated team enhances and elevates every aspect of daily life.</div>
+            </div>
+            <div class="residents_onboard_column">
+                <img src="{% static 'residents_page/GSP_052_original.jpg' %}" alt="" class="resident_onboard_image">
+                <div class="residents_onboard_column_title">PEACE OF MIND</div>
+                <div class="residents_onboard_hr"></div>
+                <div class="residents_onboard_column_content">Whether you are at home or away, world-class Four Seasons property management protects, secures and maintains your residence for you.</div>
+            </div>
+            <div class="residents_onboard_column">
+                <img src="{% static 'residents_page/LCP_014_original.jpg' %}" alt="" class="resident_onboard_image">
+                <div class="residents_onboard_column_title">EXPERTS IN OUR FIELD</div>
+                <div class="residents_onboard_hr"></div>
+                <div class="residents_onboard_column_content">Known across the world for quality, consistency and constant innovation, each individual home is the result of decades of experience and expertise.</div>
+            </div>
+        </div>
+
+        <div class="resident_carousel_title">PRIVATE RESIDENCES</div>
+    {#  Carusel  #}
+
+    <div class="resident_carousel">
+        <div class="resident_slide fade">
+            <div class="res_image_block">
+                <img src="{% static 'residents_page/la.jpg' %}" alt="" class="resident_slide_image">
+                <div class="resident_slide_title"><i>Los-Angeles</i></div>
+            </div>
+        </div>
+        <div class="resident_slide fade">
+                <div class="res_image_block">
+                    <img src="{% static 'residents_page/minneapolis.jpg' %}" alt="" class="resident_slide_image">
+                    <div class="resident_slide_title"><i>Minneapolis</i></div>
+                </div>
+        </div>
+        <div class="resident_slide fade">
+            <div class="res_image_block">
+                <img src="{% static 'residents_page/new cario.jpg' %}" alt="" class="resident_slide_image">
+                <div class="resident_slide_title"><i>New Cairo capital at madinaty</i></div>
+            </div>
+        </div>
+        <div class="resident_slide fade">
+            <div class="res_image_block">
+                <img src="{% static 'residents_page/bangkok.jpg' %}" alt="" class="resident_slide_image">
+                <div class="resident_slide_title"><i>Bangkok at chao phraya river</i></div>
+            </div>
+        </div>
+        <div class="resident_slide fade">
+            <div class="res_image_block">
+                <img src="{% static 'residents_page/florida.jpg' %}" alt="" class="resident_slide_image">
+                <div class="resident_slide_title"><i>Fort Lauderdale</i></div>
+            </div>
+        </div>
+        <div class="resident_slide fade">
+            <div class="res_image_block">
+                <img src="{% static 'residents_page/sharm el sikh.jpg' %}" alt="" class="resident_slide_image">
+                <div class="resident_slide_title"><i>Sharm-el-sheikh</i></div>
+            </div>
+        </div>
+        <div class="resident_slide fade">
+            <div class="res_image_block">
+                <img src="{% static 'residents_page/mumbai.jpg' %}" alt="" class="resident_slide_image">
+                <div class="resident_slide_title"><i>Mumbai</i></div>
+            </div>
+        </div>
+        <div class="resident_slide fade">
+            <div class="res_image_block">
+                <img src="{% static 'residents_page/nevis.jpg' %}" alt="" class="resident_slide_image">
+                <div class="resident_slide_title"><i>Nevis</i></div>
+            </div>
+        </div>
+        <a class="res_prev" onclick="plusSlideRes(-1)">&#10094</a>
+        <a class="res_next" onclick="plusSlideRes(1)">&#10095</a>
+    </div>
+    <div class="flex_form_box">
+        <form class="api_send_form" method="post">
+        {% csrf_token %}
+            <div class="name_box">
+                <input type="text" id="resident_status_select" list="options" placeholder="Status" class="resident_status_select" name="status">
+                <datalist id="options">
+                      <option value="Mr">
+                      <option value="Mrs">
+                      <option value="Ms">
+                      <option value="Dr">
+                </datalist>
+                <input type="text" placeholder="First Name" class="resident_name" name="name">
+            </div>
+            <input type="text" placeholder="Last Name" class="resident_item" name="lastname">
+            <input type="text" placeholder="Email" class="resident_item" name="email">
+            <div class="resident_but_box">
+                <button class="resident_button" type="submit">submit</button>
+            </div>
+        </form>
+    </div>
+
+{% endblock %}

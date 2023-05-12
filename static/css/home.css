@@ -1,0 +1,236 @@
+* {
+   margin: 0;
+   padding: 0;
+}
+.first_text{
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   font-family: Monotype Garamond, garamond, serif;
+   font-size: 21px;
+   gap: 20px;
+}
+.first_text_item{
+   font-family: "Neue Helvetica", helvetica, sans-serif;
+   font-weight: 700;
+}
+.first_text_item_box{
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+}
+.first_underline{
+   width: 140%;
+   height: 4px;
+   background-color: #000;
+}
+.first_text_content{
+   font-family: Monotype Garamond, garamond, serif;
+   font-size: 18px;
+   text-align: center;
+}
+.slide_image{
+   width: 100%;
+   height: 800px;
+}
+.carousel{
+   width: 95%;
+   position: relative;
+   margin: 40px auto 0;
+}
+.prev, .next{
+   cursor: pointer;
+   position: absolute;
+   top: 50%;
+   padding: 16px;
+   transform: translateY(-50%);
+   color: #ffffff;
+   font-weight: 700;
+   font-size: 50px;
+   transition: .5s;
+   border-radius: 0 3px 3px 0;
+}
+.next{
+   right: 0;
+   border-radius: 3px 0 0 3px;
+}
+.prev:hover, .next:hover{
+   color: #3f4d42;
+}
+.active, .dot{
+   cursor: pointer;
+   height: 8px;
+   width: 100px;
+   border-radius: 10px;
+   display: inline-block;
+   background-color: #bbb;
+   transition: .5s;
+}
+.active, .dot:hover{
+   background-color: #717171;
+}
+.fade{
+   -webkit-animation-name: fade;
+   -webkit-animation-duration: 1.5s;
+   animation-name: fade;
+   animation-duration: 1.5s;
+}
+@-webkit-keyframes fade {
+   from{opacity: .4}
+   to{opacity: 1}
+}
+@keyframes fade {
+   from{opacity: .4}
+   to{opacity: 1}
+}
+.dot_box{
+   display: flex;
+   justify-content: center;
+   gap: 30px;
+   margin-top: 20px;
+}
+.image_block{
+   position: relative;
+}
+.first_slide_box{
+   position: absolute;
+   top: 15%;
+   left: 20%;
+   display: flex;
+   flex-direction: column;
+   gap: 30px;
+}
+.first_slide_title{
+   font-family: "Monotype Garamond", garamond, serif;
+   font-size: 35px;
+}
+.first_slide_title, .first_slide_title_text{
+   color: #ffffff;
+}
+.first_slide_title_text{
+   font-weight: 700;
+   font-family: "Neue Helvetica", helvetica, sans-serif;
+   font-size: 50px;
+   letter-spacing: 2px;
+   text-transform: uppercase;
+}
+.first_slide_button{
+   width: max-content;
+   padding: 15px 70px;
+   font-weight: 700;
+   font-family: "Neue Helvetica", helvetica, sans-serif;
+   font-size: 25px;
+   text-decoration: none;
+   color: #000;
+   text-transform: uppercase;
+   background-color: #fff;
+   transition: .4s all;
+}
+.first_slide_button:hover{
+   cursor: pointer;
+   background-color: #504e4e;
+   color: #fff;
+}
+.table_image, .safe_image{
+   width: 100%;
+   height: 80%;
+}
+
+.food_content_title{
+   font-weight: 700;
+   text-decoration: none;
+   color: #000;
+   text-transform: uppercase;
+   letter-spacing: 2px;
+   font-family: "Neue Helvetica", helvetica, sans-serif;
+   font-size: 12px;
+}
+.food_content_text{
+   font-family: "Monotype Garamond", garamond, serif;
+   font-size: 15px;
+   line-height: 25px;
+}
+.about_content{
+   display: flex;
+   flex-wrap: wrap;
+   gap: 20px;
+   justify-content: center;
+}
+.big_content, .food_content, .beach_content{
+   height: 350px;
+   width: 400px;
+}
+.explore_text{
+   font-family: "Neue Helvetica", helvetica, sans-serif;
+   font-size: 1.5rem;
+   font-weight: 200;
+   text-transform: uppercase;
+   color: #4b4a4a;
+   display: flex;
+   justify-content: center;
+   margin: 100px 0 50px;
+}
+.insta_text{
+   font-family: "Monotype Garamond", garamond, serif;
+   font-weight: 400;
+   font-size: 22px;
+   margin: 0 auto;
+   justify-content: center;
+   max-width: 900px;
+   text-align: center;
+   padding: 0 20px;
+}
+.instagram_info{
+   display: flex;
+   align-items: center;
+   gap: 10px;
+}
+.instagram_image{
+   width: 210px;
+   height: 210px;
+}
+.instagram_icon{
+   width: 13px;
+   height: 13px;
+}
+.instagram_username{
+   font-family: "Neue Helvetica", helvetica, sans-serif;
+   font-size: 10px;
+   letter-spacing: 3px;
+   color: #4b4a4a;
+}
+.instagram_box{
+   display: flex;
+   justify-content: center;
+   gap: 30px;
+   flex-wrap: wrap;
+   padding:50px 20px 100px;
+}
+.instagram_profile{
+   display: flex;
+   flex-direction: column;
+   gap: 12px;
+}
+.history{
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   align-items: center;
+   padding: 100px 0;
+   background-color: #000;
+   gap: 25px;
+}
+.history_text{
+   text-align: center;
+   max-width: 650px;
+   line-height: 30px;
+   font-family: "Monotype Garamond", garamond, serif;
+   font-size: 18px;
+   color: #fff;
+}
+.history_title{
+   font-family: "Neue Helvetica", helvetica, sans-serif;
+   font-size: 24px;
+   font-weight: 200;
+   color: #fff;
+}

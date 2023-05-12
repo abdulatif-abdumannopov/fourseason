@@ -1,0 +1,208 @@
+.maldive_trt_block{
+    display: flex;
+    justify-content: center;
+    padding: 50px 0;
+}
+.maldives_title_content{
+    font-family: var(--mon-font);
+    font-size: 15px;
+    line-height: 25px;
+}
+.maldives_title_text{
+    font-family: var(--neue-font);
+    font-size: 24px;
+    opacity: 0.8;
+}
+.maldives_title_block{
+    display: flex;
+    width: 60%;
+    min-width: min-content;
+    flex-direction: column;
+    gap: 20px;
+    background-color: #f5f5f5;
+    padding: 100px;
+    text-align: center;
+}
+.maldive_onboard_column_content{
+    font-family: var(--mon-font);
+    font-size: 18px;
+    line-height: 27px;
+    margin-bottom: 20px;
+    padding: 0 25px;
+}
+.maldive_onboard_column_title{
+    font-family: var(--neue-font);
+    font-size: 12px;
+    font-weight: 700;
+    opacity: 0.7;
+}
+.maldive_onboard_hr{
+    width: 40px;
+    height: 2px;
+    background-color: #000000;
+    margin: 0 auto;
+}
+.maldive_onboard_column{
+    width: min-content;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    background-color: #f5f5f5;
+}
+.maldive_onboard_box{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
+}
+.maldive_onboard_title{
+    font-family: var(--neue-font);
+    font-size: 24px;
+    font-weight: 200;
+    opacity: 0.7;
+    letter-spacing: 2px;
+}
+.maldive_onboard{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 50px;
+}
+.diving_box_image{
+    width: 50%;
+    overflow: hidden;
+}
+.diving_box_content{
+    display: flex;
+    overflow: hidden;
+    flex-wrap: wrap;
+    max-height: max-content
+}
+.diving_box_text {
+    width: 50%;
+    position: relative;
+    background-color: #f5f5f5;
+    padding-bottom: 50px;
+}
+.diving_box_image img {
+    width: 100%;
+    height: auto;
+}
+.diving_box_title{
+    top: 200px;
+    left: 10%;
+    font-family: var(--neue-font);
+    font-size: 24px;
+    opacity: 0.7;
+    position: absolute;
+}
+.diving_box_description {
+    top: 300px;
+    left: 10%;
+    font-family: var(--mon-font);
+    font-size: 18px;
+    position: absolute;
+    line-height: 25px;
+    max-width: 500px;
+}
+.festival_title{
+    font-family: var(--neue-font);
+    font-size: 24px;
+    opacity: 0.7;
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    white-space: nowrap;
+}
+.diving_box{
+    position: relative;
+    padding: 70px 0;
+    margin-top: 50px;
+    display: flex;
+    flex-direction: column;
+}
+@media screen and (max-width: 700px){
+    .diving_box_description{
+        top: 200px;
+    }
+    .diving_box_text{
+        overflow-y: scroll;
+    }
+    .diving_box_title{
+        top: 100px;
+    }
+}
+.diving_ocean {
+  width: 100%;
+  height: auto;
+  position: relative;
+}
+
+.diving_ocean_text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-family: var(--mon-font);
+  font-size: 48px;
+  font-style: italic;
+  line-height: 72px;
+  color: #fff;
+  max-width: 100%;
+  text-align: center;
+}
+
+.diving_ocean_author {
+  position: absolute;
+  font-family: var(--neue-font);
+  font-size: 12px;
+  line-height: 16px;
+  color: #fff;
+  letter-spacing: 1px;
+  bottom: calc(10% + 50px);
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.diving_ocean_image {
+  width: 100%;
+  height: auto;
+}
+
+.diving_ocean_container {
+  max-width: 700px;
+}
+
+@media screen and (max-width: 1200px) {
+  .diving_ocean_text {
+    font-size: 36px;
+  }
+    .diving_ocean_author {
+        bottom: calc(5% + 50px);
+    }
+}
+
+@media screen and (max-width: 460px) {
+    .diving_box_description {
+        top: 150px;
+    }
+
+    .diving_box_text {
+        overflow-y: scroll;
+    }
+
+    .diving_box_title {
+        top: 10px;
+    }
+
+    .diving_ocean_text {
+        font-size: 24px;
+        line-height: 36px;
+    }
+
+    .diving_ocean_author {
+        bottom: calc(5% + 50px);
+    }
+}

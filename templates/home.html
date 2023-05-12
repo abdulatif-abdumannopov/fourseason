@@ -1,0 +1,109 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Four Seasons Hotel and Resort{% endblock %}
+{% block content %}
+<div class="first_text">
+    <div class="first_text_title"><i>Featured Properties</i></div>
+    <div class="first_text_item_box">
+        <div class="first_text_item">HOTELS AND RESORTS</div>
+        <hr class="first_underline">
+    </div>
+    <div class="first_text_content">Whether staying for business or leisure, discover our most inspiring properties all around the<br> world.</div>
+</div>
+<div class="carousel">
+    <div class="slide fade">
+        <div class="image_block">
+            <img src="{% static 'images/94856807.jpg' %}" alt="" class="slide_image">
+            <div class="first_slide_box">
+                <div class="first_slide_title"><i>Four Seasons Resort Experience</i></div>
+                <div class="first_slide_title_text">Love gears up for <br> adventure</div>
+                <a class="first_slide_button" href="">discover our resorts</a>
+            </div>
+        </div>
+    </div>
+    <div class="slide fade">
+            <div class="image_block">
+                <img src="{% static 'images/197926125.jpg' %}" alt="" class="slide_image">
+                <div class="first_slide_box">
+                    <div class="first_slide_title"><i>Four Seasons Hotels Experience</i></div>
+                    <div class="first_slide_title_text">Relish all in <br> your trip</div>
+                    <a class="first_slide_button" href="">show our hotels</a>
+                </div>
+            </div>
+    </div>
+    <div class="slide fade">
+        <div class="image_block">
+            <img src="{% static 'images/80169615.jpg' %}" alt="" class="slide_image">
+            <div class="first_slide_box">
+                <div class="first_slide_title"><i>Four Seasons Hotels Experience</i></div>
+                <div class="first_slide_title_text">Start resting <br> without strain</div>
+                <a class="first_slide_button" href="">start trip</a>
+            </div>
+        </div>
+    </div>
+    <a class="prev" onclick="plusSlides(-1)">&#10094</a>
+    <a class="next" onclick="plusSlides(1)">&#10095</a>
+</div>
+<div class="dot_box">
+    <span class="dot" onclick="currentSlide(1)"></span>
+    <span class="dot" onclick="currentSlide(2)"></span>
+    <span class="dot" onclick="currentSlide(3)"></span>
+</div>
+
+<div class="explore_text">explore more with four seasons</div>
+
+<div class="about_content">
+        <div class="big_content">
+            <img src="{% static 'images/living-room-gf31419db9_640.jpg' %}" alt="" class="safe_image">
+            <a class="food_content_title" href="">comfortable apartments 	&#8594;</a>
+            <div class="food_content_text">Sleep, a guarantee of good rest,let's start with us</div>
+        </div>
+
+        <div class="food_content">
+            <img src="{% static 'images/table-ge62cce1d5_1920.jpg' %}" alt="" class="table_image">
+            <a class="food_content_title" href="">indulge in four seasons dining 	&#8594;</a>
+            <div class="food_content_text">Gather round the table and taste our finest culinary creations, paired with an immersive dining experience you’ll never forget!</div>
+        </div>
+        <div class="beach_content">
+            <img src="{% static 'images/beach-g990ea8fa9_640.jpg' %}" alt="" class="table_image">
+            <a class="food_content_title" href="{% url 'maldives' %}">Start discover Maldives 	&#8594;</a>
+            <div class="food_content_text">Unusual and breathtaking view of Indian Ocean</div>
+        </div>
+</div>
+<div class="explore_text">#FOURSEASONS</div>
+<div class="insta_text">Visit @fourseasons and #fourseasons to discover unforgettable guest experiences at Four Seasons Hotels and Resorts.</div>
+<div class="instagram_box">
+    <div class="instagram_profile">
+        <img src="{% static 'images/AIL_ugc_jeremyaustiin.jpeg' %}" alt="" class="instagram_image">
+        <div class="instagram_info">
+            <img src="{% static 'logo/instagram_f_icon-icons.com_62685.svg' %}" alt="" class="instagram_icon">
+            <div class="instagram_username">@JEREMYAUSTIIN</div>
+        </div>
+    </div>
+    <div class="instagram_profile">
+        <img src="{% static 'images/DJB_ugc_cherrielynn.jpeg' %}" alt="" class="instagram_image">
+        <div class="instagram_info">
+            <img src="{% static 'logo/instagram_f_icon-icons.com_62685.svg' %}" alt="" class="instagram_icon">
+            <div class="instagram_username">@CHERRIELYNN</div>
+        </div>
+    </div>
+    <div class="instagram_profile">
+        <img src="{% static 'images/MAL_ugc_mgtenazas.jpg' %}" alt="" class="instagram_image">
+        <div class="instagram_info">
+            <img src="{% static 'logo/instagram_f_icon-icons.com_62685.svg' %}" alt="" class="instagram_icon">
+            <div class="instagram_username">@MGTENAZAS</div>
+        </div>
+    </div>
+    <div class="instagram_profile">
+        <img src="{% static 'images/MIL_ugc_cherrielynn.jpeg' %}" alt="" class="instagram_image">
+        <div class="instagram_info">
+            <img src="{% static 'logo/instagram_f_icon-icons.com_62685.svg' %}" alt="" class="instagram_icon">
+            <div class="instagram_username">@CHERRIELYNN</div>
+        </div>
+    </div>
+</div>
+<div class="history">
+    <div class="history_title">THE FOUR SEASONS STORY</div>
+    <div class="history_text">A name synonymous around the world for continual innovation, remarkable expansion and a single-minded dedication to the highest standards of service, discover how Four Seasons has transformed the hospitality industry and redefined the meaning of luxury travel since first opening its doors back in 1961.</div>
+</div>
+{% endblock %}
