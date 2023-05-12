@@ -58,7 +58,7 @@
 }
 .dinning_carusel{
     position: relative;
-    max-width: 370px;
+    max-width: 600px;
     margin: 0 auto;
 }
 .counter_box{
@@ -80,4 +80,39 @@
 }
 .din_prev, .din_next{
     cursor: pointer;
+}
+.dinning_tea_title{
+    font-weight: 200;
+    font-size: 24px;
+    font-family: var(--neue-font);
+}
+.dinning_tea_nam{
+    font-weight: 700;
+    font-size: 18px;
+    font-family: var(--neue-font);
+    margin-top: 10px;
+}
+.dinning_tea_text{
+    font-weight: 400;
+    font-size: 15px;
+    font-family: var(--mon-font);
+    line-height: 25px;
+}
+.dinning_tea_column_title{
+    font-weight: 400;
+    font-size: 22px;
+    font-family: var(--mon-font);
+    margin: 10px 0;
+}
+.dinning_tea_image{
+    width: 100%;
+    height: auto;
+    transition: .5s;
+}
+.dinning_tea_column{
+    max-width: 290px;
+    overflow: hidden;
+}
+.dinning_tea_image:hover{
+    transform: scale(1.2);
 }
