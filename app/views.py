@@ -36,14 +36,19 @@ def residents(request):
         first_name = request.POST.get('name')
         last_name = request.POST.get('lastname')
         email = request.POST.get('email')
+        services = request.POST.get('services')
         data = {
             'status': status,
             'name': first_name,
             'lastname': last_name,
-            'email': email
+            'email': email,
+            'services': services,
         }
         print(data)
     return render(request, 'residents.html')
 
 def dining(request):
     return render(request, 'dinning.html')
+
+def gift_cards(request):
+    return render(request, 'gift_cards.html')

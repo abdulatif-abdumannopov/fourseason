@@ -7,6 +7,7 @@ urlpatterns = [
     path('maldives', maldives, name='maldives'),
     path('residents', residents, name='residents'),
     path('dining', dining, name='dining'),
+    path('gift-cards', gift_cards, name='gift_cards'),
     path('api/v1/post', PostList.as_view()),
     path('api/v1/post_delete/<int:pk>', PostDelete.as_view()),
     path('api/v1/post_update/<int:pk>', PostUpdate.as_view()),

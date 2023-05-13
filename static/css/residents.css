@@ -149,3 +149,9 @@
     flex-wrap: nowrap;
     gap: 10px;
 }
+.resident_services{
+    width: 140px;
+    height: 41px;
+    padding: 10px;
+    font-size: 15px;
+}

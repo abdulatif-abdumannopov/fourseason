@@ -1,0 +1,56 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Gift Cards{% endblock %}
+{% block content %}
+    <div class="gift_start_title_block">
+        <div class="gift_start_small_title">Four Seasons Hotels and Resorts</div>
+        <div class="gift_start_big_title">GIFT CARDS</div>
+        <div class="gift_hr_block"></div>
+    </div>
+    <div class="gift_second_title_block">
+        <div class="gift_second_title_block_title">FOUR SEASONS GIFT CARDS</div>
+        <div class="gift_second_title_text">Choose a gift that will surpass even the highest expectations: The opportunity to discover a memorable experience with Four Seasons.Our Gift Cards are redeemable for overnight stays, dining, spa treatments and more experiences at Four Seasons hotels and resorts worldwide.</div>
+    </div>
+    <div class="gift_card_buy">
+        <img src="{% static 'gift_page/plastic.png' %}" alt="" class="gift_card_image">
+        <div class="gift_buy_title">BUY A GIFT CARD</div>
+        <div class="gift_title_text">Available in any denomination from USD 100 to USD 2,000 to a maximum amount of USD
+            <br> 10,000 per order.
+            <br> Note: For orders exceeding USD 10,000, please contact us.</div>
+    </div>
+    <div class="gift_using_block">
+        <div class="gift_using_block_text">
+            <div class="gift_using_title">USING YOUR FOUR SEASONS GIFT CARD</div>
+            <div class="gift_using_text">You can apply your Four Seasons Gift Card towards any Four Seasons experience – from accommodations to spa treatments and dining occasions – at Four Seasons hotels and resorts worldwide. To make reservations or enquiries, we invite you to contact the hotel of your choice directly. Our staff will be pleased to help you fulfil your wish.</div>
+        </div>
+        <img src="{% static 'gift_page/card.png' %}" alt="" class="gift_using_image">
+    </div>
+        <div class="flex_form_box">
+        <form class="api_send_form" method="post">
+        {% csrf_token %}
+            <div class="name_box">
+                <input type="text" id="resident_status_select" list="options" placeholder="Status" class="resident_status_select" name="status">
+                <datalist id="options">
+                      <option value="Mr">
+                      <option value="Mrs">
+                      <option value="Ms">
+                      <option value="Dr">
+                </datalist>
+                <input type="text" placeholder="First Name" class="resident_name" name="name">
+            </div>
+            <input type="text" placeholder="Last Name" class="resident_item" name="lastname">
+            <input type="text" placeholder="Email" class="resident_item" name="email">
+            <select name="services" class="resident_services">
+                <option value="gift card">Gift Card</option>
+                <option value="hotel">Hotel</option>
+                <option value="reservation">Reservation</option>
+                <option value="food">Food</option>
+                <option value="loss">Loss</option>
+                <option value="other">Other</option>
+            </select>
+            <div class="resident_but_box">
+                <button class="resident_button" type="submit">submit</button>
+            </div>
+        </form>
+    </div>
+{% endblock %}

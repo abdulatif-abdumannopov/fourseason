@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="{% static 'css/maldives.css' %}">
     <link rel="stylesheet" href="{% static 'css/residents.css' %}">
     <link rel="stylesheet" href="{% static 'css/dinning.css' %}">
+    <link rel="stylesheet" href="{% static 'css/gift_card.css' %}">
 </head>
 <body>
     <header>
@@ -47,7 +48,7 @@
             <div class="colum">
                 <div class="column_title">More</div>
                 <ul class="column_items">
-                    <li><a href="" class="column_items">gift cards</a></li>
+                    <li><a href="{% url 'gift_cards' %}" class="column_items">gift cards</a></li>
                     <li><a href="" class="column_items">extraordinary <br> experiences</a></li>
                 </ul>
             </div>
