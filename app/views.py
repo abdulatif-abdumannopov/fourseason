@@ -52,3 +52,6 @@ def dining(request):
 
 def gift_cards(request):
     return render(request, 'gift_cards.html')
+
+def jet(request):
+    return render(request, 'jet.html')

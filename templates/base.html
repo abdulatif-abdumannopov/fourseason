@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="{% static 'css/residents.css' %}">
     <link rel="stylesheet" href="{% static 'css/dinning.css' %}">
     <link rel="stylesheet" href="{% static 'css/gift_card.css' %}">
+    <link rel="stylesheet" href="{% static 'css/jet.css' %}">
 </head>
 <body>
     <header>
@@ -17,7 +18,7 @@
             <a href="{% url 'home' %}"><img class="logo" src="{% static 'logo/four-seasons-hotels-limited-vector-logo.svg' %}" alt=""></a>
             <ul class="links_navigation">
                 <li class="nav_links"><a href="{% url 'maldives' %}" class="nav_links_item">HOTEL & RESORTS</a></li>
-                <li class="nav_links"><a href="#" class="nav_links_item">SHOP</a></li>
+                <li class="nav_links"><a href="{% url 'jet' %}" class="nav_links_item">PRIVATE JET</a></li>
                 <li class="nav_links"><a href="{% url 'dining' %}" class="nav_links_item">DINING</a></li>
                 <li class="nav_links"><a href="{% url 'residents' %}" class="nav_links_item">RESIDENTS</a></li>
                 <li class="nav_links"><a href="" class="nav_links_item">HISTORY</a></li>
