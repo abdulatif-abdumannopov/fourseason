@@ -58,3 +58,74 @@
 .jet_second_column{
     max-width: 500px;
 }
+.jet_luxury_title{
+    font-family: AdobeCaslonW01-Regular, serif;
+    font-size: 36px;
+}
+.jet_luxury_hr{
+    width: 100px;
+    height: 1px;
+    background-color: #000;
+}
+.jet_luxury_text{
+    font-family: "Helvetica Neue LT W01_41488878", helvetica, sans-serif;
+    font-size: 16px;
+    line-height: 28px;
+    width: 80%;
+}
+.jet_luxury_content{
+    width: 33.33%;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+.jet_luxury_box, .jet_luxury_box_big, .jet_luxury_box_small{
+    display: flex;
+    justify-content: center;
+    padding: 100px 150px;
+    gap: 50px;
+}
+.jet_luxury_image{
+    width: 66.67%;
+}
+.jet_luxury_box_small{
+    display: none;
+}
+@media screen and (max-width: 1200px){
+    .jet_luxury_box{
+        padding: 0;
+        margin-top: 50px;
+        flex-wrap: wrap;
+    }
+    .jet_luxury_box_big{
+        display: none;
+    }
+    .jet_luxury_box_small{
+        display: flex;
+        padding: 0;
+        margin: 50px 0;
+        flex-wrap: wrap;
+    }
+    .jet_luxury_text{
+        width: 100%;
+    }
+    .jet_luxury_image, .jet_luxury_content{
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+}
+.jet_page_form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+.jet_name, .jet_lastname, .jet_number, .jet_email{
+    width: 500px;
+    height: 40px;
+    padding: 20px;
+    font-size: 16px;
+}

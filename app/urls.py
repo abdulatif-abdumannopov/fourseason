@@ -8,7 +8,7 @@ urlpatterns = [
     path('residents', residents, name='residents'),
     path('dining', dining, name='dining'),
     path('gift-cards', gift_cards, name='gift_cards'),
-    path('private-jet', jet, name='jet'),
+    path('privatejet', jet, name='jet'),
     path('api/v1/post', PostList.as_view()),
     path('api/v1/post_delete/<int:pk>', PostDelete.as_view()),
     path('api/v1/post_update/<int:pk>', PostUpdate.as_view()),

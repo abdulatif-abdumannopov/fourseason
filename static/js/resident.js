@@ -16,3 +16,4 @@ function plusSlideRes(n) {
   showSlideRes(current);
 }
 showSlideRes(current);
+

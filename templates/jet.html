@@ -40,4 +40,68 @@
             <div class="jet_first_column_text">Be a resident of the world as you glide from one Four Seasons hotel to another, sleeping soundly in the same custom bed every night.</div>
         </div>
     </div>
+    <div class="jet_second_content_box">
+        <div class="jet_first_title">WELCOME TO YOUR HOTEL IN THE SKY</div>
+        <div class="jet_first_text">Fly from one extraordinary destination to the next aboard the luxuriously appointed private jet, accompanied by an elite team of Four Seasons professionals who empower you to follow your passions.</div>
+    </div>
+    <div class="jet_luxury_box_big">
+        <div class="jet_luxury_content">
+            <div class="jet_luxury_title">Luxury at 40,000 feet</div>
+            <div class="jet_luxury_hr"></div>
+            <div class="jet_luxury_text">This state-of-the-art aircraft has been completely reimagined for the modern traveller, featuring a variety of handpicked amenities and presenting the same comfort and polished design found at our hotels and resorts.</div>
+        </div>
+        <img src="{% static 'jet_page/31.jpg' %}" alt="" class="jet_luxury_image">
+    </div>
+    <div class="jet_luxury_box_small">
+        <img src="{% static 'jet_page/31.jpg' %}" alt="" class="jet_luxury_image">
+        <div class="jet_luxury_content">
+            <div class="jet_luxury_title">Luxury at 40,000 feet</div>
+            <div class="jet_luxury_hr"></div>
+            <div class="jet_luxury_text">This state-of-the-art aircraft has been completely reimagined for the modern traveller, featuring a variety of handpicked amenities and presenting the same comfort and polished design found at our hotels and resorts.</div>
+        </div>
+    </div>
+    <div class="jet_luxury_box">
+        <img src="{% static 'jet_page/41.jpg' %}" alt="" class="jet_luxury_image">
+        <div class="jet_luxury_content">
+            <div class="jet_luxury_title">On-board Executive Chef</div>
+            <div class="jet_luxury_hr"></div>
+            <div class="jet_luxury_text">With every stop comes inspiration. Working closely with each local Four Seasons culinary team, our on-board Executive Chef Kerry Sear calls on his decades of experience to create innovative in-flight menus that highlight regional flavours and specialties, using fresh ingredients gathered throughout the trip.</div>
+        </div>
+    </div>
+    <div class="jet_luxury_box_big">
+        <div class="jet_luxury_content">
+            <div class="jet_luxury_title">Always at your service</div>
+            <div class="jet_luxury_hr"></div>
+            <div class="jet_luxury_text">It’s your favourite drink waiting for you when you arrive back at your seat, or snacks served at just the right time. With one crew member to every six passengers, our Four Seasons trained inflight team takes the time to get to know you, making sure every moment on the Jet is a delight. The Four Seasons Private Jet Journeys are sold and operated by TCS World Travel. Aircraft operated by Titan Airways Limited.</div>
+        </div>
+        <img src="{% static 'jet_page/51.jpg' %}" alt="" class="jet_luxury_image">
+    </div>
+    <div class="jet_luxury_box_small">
+        <img src="{% static 'jet_page/51.jpg' %}" alt="" class="jet_luxury_image">
+        <div class="jet_luxury_content">
+            <div class="jet_luxury_title">Always at your service</div>
+            <div class="jet_luxury_hr"></div>
+            <div class="jet_luxury_text">It’s your favourite drink waiting for you when you arrive back at your seat, or snacks served at just the right time. With one crew member to every six passengers, our Four Seasons trained inflight team takes the time to get to know you, making sure every moment on the Jet is a delight. The Four Seasons Private Jet Journeys are sold and operated by TCS World Travel. Aircraft operated by Titan Airways Limited.</div>
+        </div>
+    </div>
+    <div class="flex_form_box">
+        <form class="api_send_form" method="post">
+        {% csrf_token %}
+            <div class="name_box">
+                <input type="text" id="resident_status_select" list="options" placeholder="Status" class="resident_status_select" name="status">
+                <datalist id="options">
+                      <option value="Mr">
+                      <option value="Mrs">
+                      <option value="Ms">
+                      <option value="Dr">
+                </datalist>
+                <input type="text" placeholder="First Name" class="resident_name" name="name">
+            </div>
+            <input type="text" placeholder="Last Name" class="resident_item" name="lastname">
+            <input type="text" placeholder="Email" class="resident_item" name="email">
+            <div class="resident_but_box">
+                <button class="resident_button" type="submit">submit</button>
+            </div>
+        </form>
+    </div>
 {% endblock %}
