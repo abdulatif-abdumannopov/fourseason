@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}About us and Our History{% endblock %}
+{% block content %}
+    <div class="about_start_text_content">
+        <div class="about_start_text_title">Four Seasons</div>
+        <div class="about_start_text_description">About us</div>
+    </div>
+    <div class="about_other_text">
+        <p class="about_other_item">When you think about Four Seasons, we hope unparalleled luxury comes to mind. But what is luxury, really? Our answer may surprise you.</p>
+        <p class="about_other_item">To us, true luxury is a meaningful sense of belonging. It is a dedicated focus on how people want to be treated, grounded in the genuine care you experience during your stay and defined by an abundance of humanity and generosity. This starts with our passionate team, welcoming you to be the centre of our world, anywhere in the world – and always with a distinctly human touch.</p>
+    </div>
+    <div class="about_author_says_box">
+        <img src="{% static 'about_page/HIS_002_original.jpg' %}" alt="" class="about_author_image">
+        <div class="about_author_text_box">
+            <div class="about_author_said">There was no vision, there was no grand dream – but there has always been a consistent thread and it propels us forward today, as we continue to grow globally, and that’s service.</div>
+            <div class="about_author_name">ISADORE SHARP</div>
+            <div class="about_author_status">FOUNDER AND CHAIRMAN</div>
+        </div>
+    </div>
+{% endblock %}

@@ -55,3 +55,6 @@ def gift_cards(request):
 
 def jet(request):
     return render(request, 'jet.html')
+
+def about(request):
+    return render(request, 'about.html')

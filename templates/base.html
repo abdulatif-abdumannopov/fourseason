@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="{% static 'css/dinning.css' %}">
     <link rel="stylesheet" href="{% static 'css/gift_card.css' %}">
     <link rel="stylesheet" href="{% static 'css/jet.css' %}">
+    <link rel="stylesheet" href="{% static 'css/about.css' %}">
 </head>
 <body>
     <header>
@@ -35,7 +36,7 @@
             <div class="colum">
                 <div class="column_title">About</div>
                 <ul class="column_items">
-                    <li><a href="" class="column_items">about us</a></li>
+                    <li><a href="{% url 'about' %}" class="column_items">about us</a></li>
                     <li><a href="" class="column_items">careers</a></li>
                     <li><a href="" class="column_items">contact us</a></li>
                 </ul>

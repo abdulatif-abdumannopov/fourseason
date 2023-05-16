@@ -1,0 +1,85 @@
+.about_start_text_content{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+.about_start_text_title{
+    font-style: italic;
+    font-family: var(--mon-font);
+    font-size: 20px;
+    white-space: nowrap;
+}
+.about_start_text_description{
+    font-family: var(--neue-font);
+    font-size: 35px;
+    letter-spacing: 2px;
+    white-space: nowrap;
+}
+.about_other_text{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    margin: 50px auto 0;
+    gap: 15px;
+    max-width: 930px;
+    padding: 0 20px;
+}
+.about_other_item{
+    font-family: var(--mon-font);
+    font-size: 18px;
+    line-height: 27px;
+}
+.about_author_status{
+    font-family: var(--neue-font);
+    font-size: 12px;
+    white-space: nowrap;
+    margin-top: 10px;
+}
+.about_author_name{
+    font-family: var(--neue-font);
+    font-size: 12px;
+    white-space: nowrap;
+    font-weight: 700;
+    margin-top: 50px;
+}
+.about_author_said{
+    font-family: var(--mon-font);
+    font-size: 32px;
+    line-height: 48px;
+    font-style: italic;
+}
+.about_author_text_box{
+    display: flex;
+    flex-direction: column;
+    width: 33.3%;
+    padding: 20px;
+    text-align: center;
+    max-height: 500px;
+}
+.about_author_says_box{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 150px;
+}
+@media screen and (max-width: 1000px){
+    .about_author_said{
+        font-size: 24px;
+    }
+    .about_author_name{
+        margin-top: 10px;
+    }
+}
+@media screen and (max-width: 700px){
+    .about_author_said{
+        font-size: 20px;
+    }
+    .about_author_name{
+        margin-top: 10px;
+    }
+    .about_author_text_box{
+        width: 50%;
+    }
+}
