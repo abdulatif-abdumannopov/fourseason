@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="{% static 'css/gift_card.css' %}">
     <link rel="stylesheet" href="{% static 'css/jet.css' %}">
     <link rel="stylesheet" href="{% static 'css/about.css' %}">
+    <link rel="stylesheet" href="{% static 'css/history.css' %}">
 </head>
 <body>
     <header>
@@ -22,7 +23,7 @@
                 <li class="nav_links"><a href="{% url 'jet' %}" class="nav_links_item">PRIVATE JET</a></li>
                 <li class="nav_links"><a href="{% url 'dining' %}" class="nav_links_item">DINING</a></li>
                 <li class="nav_links"><a href="{% url 'residents' %}" class="nav_links_item">RESIDENTS</a></li>
-                <li class="nav_links"><a href="" class="nav_links_item">HISTORY</a></li>
+                <li class="nav_links"><a href="{% url 'history' %}" class="nav_links_item">HISTORY</a></li>
             </ul>
             <a class="nav_button" href="">CHECK RATES</a>
         </div>

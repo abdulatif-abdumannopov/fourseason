@@ -58,3 +58,6 @@ def jet(request):
 
 def about(request):
     return render(request, 'about.html')
+
+def history(request):
+    return render(request, 'history.html')

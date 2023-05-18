@@ -91,7 +91,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 20px;
+    gap: 50px;
     max-width: 850px;
     text-align: center;
     margin: 100px auto 0;
@@ -103,6 +103,7 @@
 }
 .about_bg_image{
     width: 100%;
+    margin-top: 100px;
 }
 .about_black_block_content{
     width: 100%;
