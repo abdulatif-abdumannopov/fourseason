@@ -13,6 +13,8 @@
     <link rel="stylesheet" href="{% static 'css/jet.css' %}">
     <link rel="stylesheet" href="{% static 'css/about.css' %}">
     <link rel="stylesheet" href="{% static 'css/history.css' %}">
+    <link rel="stylesheet" href="{% static 'css/rates.css' %}">
+    <link rel="stylesheet" href="{% static 'css/air-datepicker.css' %}">
 </head>
 <body>
     <header>
@@ -25,7 +27,7 @@
                 <li class="nav_links"><a href="{% url 'residents' %}" class="nav_links_item">RESIDENTS</a></li>
                 <li class="nav_links"><a href="{% url 'history' %}" class="nav_links_item">HISTORY</a></li>
             </ul>
-            <a class="nav_button" href="">CHECK RATES</a>
+            <a class="nav_button" href="{% url 'rates' %}">CHECK RATES</a>
         </div>
     </header>
     {% block content %}
@@ -60,5 +62,7 @@
     <script src="{% static 'js/home.js' %}"></script>
     <script src="{% static 'js/resident.js' %}"></script>
     <script src="{% static 'js/dinning.js' %}"></script>
+    <script src="{% static 'js/rates.js' %}"></script>
+    <script src="{% static 'js/air-datepicker.js' %}"></script>
 </body>
 </html>

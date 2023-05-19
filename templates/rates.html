@@ -1,0 +1,82 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Check Rates{% endblock %}
+{% block content %}
+    <form method="post" class="rate_form">
+        <div class="rates_first_name_block">
+            <p class="rates_first_name">First Name</p>
+            <input type="text" class="rates_first_name_input">
+        </div>
+        <div class="rates_second_name_block">
+            <p class="rates_second_name">Last Name</p>
+            <input type="text" class="rates_second_name_input">
+        </div>
+        <div class="rates_passengers_box">
+            Passengers
+            <div class="passengers_list">
+                <div class="rates_adult_box">
+                    <div class="rates_adult_text">Adults</div>
+                    <div class="rates_count_box">
+                        <div class="rates_minus">-</div>
+                        <div class="rates_count">1</div>
+                        <div class="rates_plus">+</div>
+                    </div>
+                </div>
+                <div class="rates_adult_box">
+                    <div class="rates_adult_text">Children</div>
+                    <div class="rates_count_box">
+                        <div class="rates_minus_child">-</div>
+                        <div class="rates_count_child">0</div>
+                        <div class="rates_plus_child">+</div>
+                    </div>
+                </div>
+                <button class="rates_adult_button" type="button">Save</button>
+            </div>
+        </div>
+        <div class="rates_date_box">
+            <input type="text" class="rates_start_date">
+            <input type="text" class="rates_end_date">
+        </div>
+    </form>
+    <script src="{% static 'js/air-datepicker.js' %}"></script>
+    <script>
+        let start = new AirDatepicker('.rates_start_date', {
+            locale: {
+              days: ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'],
+              daysShort: ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'],
+              daysMin: ['Su', 'Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa'],
+              months: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'],
+              monthsShort: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
+              today: 'Today',
+              clear: 'Clear',
+              dateFormat: 'dd/MM/yyyy',
+              timeFormat: 'hh:mm aa',
+              firstDay: 0
+            },
+            onSelect({date}) {
+                end.update({
+                    minDate: date
+                })
+            }
+        })
+        let end = new AirDatepicker('.rates_end_date', {
+            locale: {
+              days: ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'],
+              daysShort: ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'],
+              daysMin: ['Su', 'Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa'],
+              months: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'],
+              monthsShort: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
+              today: 'Today',
+              clear: 'Clear',
+              dateFormat: 'dd/MM/yyyy',
+              timeFormat: 'hh:mm aa',
+              firstDay: 0
+            },
+            onSelect({date}) {
+                start.update({
+                    minDate: date
+                })
+            }
+        })
+    </script>
+{% endblock %}

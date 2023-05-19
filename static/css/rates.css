@@ -1,0 +1,32 @@
+.rate_form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 50px;
+    margin-bottom: 100px;
+}
+.rates_first_name,
+.rates_second_name{
+    font-size: 24px;
+    font-family: var(--mon-font);
+    font-style: italic;
+    letter-spacing: 2px;
+}
+.rates_first_name_input, .rates_second_name_input{
+    width:  500px;
+    height: 40px;
+    padding: 5px 10px 5px 10px;
+    font-size: 18px;
+}
+.rates_passengers{
+    font-size: 24px;
+    font-family: var(--neue-font);
+    cursor: pointer;
+    padding: 12px 60px;
+    border: 1px solid black;
+}
+.passengers_list{
+    box-shadow: 1px 5px 10px 2px #c2bbbb;
+    background-color: #fff;
+
+}

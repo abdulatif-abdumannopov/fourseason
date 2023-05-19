@@ -61,3 +61,6 @@ def about(request):
 
 def history(request):
     return render(request, 'history.html')
+
+def rates(request):
+    return render(request, 'rates.html')

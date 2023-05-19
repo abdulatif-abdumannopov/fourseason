@@ -11,6 +11,7 @@ urlpatterns = [
     path('privatejet', jet, name='jet'),
     path('about', about, name='about'),
     path('history', history, name='history'),
+    path('rates', rates, name='rates'),
     path('api/v1/post', PostList.as_view()),
     path('api/v1/post_delete/<int:pk>', PostDelete.as_view()),
     path('api/v1/post_update/<int:pk>', PostUpdate.as_view()),
