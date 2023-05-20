@@ -3,13 +3,18 @@
 {% block title %}Check Rates{% endblock %}
 {% block content %}
     <form method="post" class="rate_form">
+    {% csrf_token %}
         <div class="rates_first_name_block">
             <p class="rates_first_name">First Name</p>
-            <input type="text" class="rates_first_name_input">
+            <input type="text" class="rates_first_name_input" name="first_name">
         </div>
         <div class="rates_second_name_block">
             <p class="rates_second_name">Last Name</p>
-            <input type="text" class="rates_second_name_input">
+            <input type="text" class="rates_second_name_input" name="last_name">
+        </div>
+        <div class="rates_second_name_block">
+            <p class="rates_second_name">Phone Number</p>
+            <input type="text" class="rates_phone_number" name="phone">
         </div>
         <div class="rates_passengers_box">
             Passengers
@@ -19,6 +24,7 @@
                     <div class="rates_count_box">
                         <div class="rates_minus">-</div>
                         <div class="rates_count">1</div>
+                        <input type="hidden" class="rates_count_input" name="adult_count">
                         <div class="rates_plus">+</div>
                     </div>
                 </div>
@@ -27,16 +33,23 @@
                     <div class="rates_count_box">
                         <div class="rates_minus_child">-</div>
                         <div class="rates_count_child">0</div>
+                        <input type="hidden" class="rates_count_input_children" name="children_count">
                         <div class="rates_plus_child">+</div>
                     </div>
                 </div>
-                <button class="rates_adult_button" type="button">Save</button>
             </div>
         </div>
         <div class="rates_date_box">
-            <input type="text" class="rates_start_date">
-            <input type="text" class="rates_end_date">
+            <div class="rate_date_box_content">
+                <div class="rate_date_text">Check - in</div>
+                <input type="text" class="rates_start_date" name="start">
+            </div>
+            <div class="rate_date_box_content">
+                <div class="rate_date_text">Check - out</div>
+                <input type="text" class="rates_end_date" name="end">
+            </div>
         </div>
+        <button type="submit" class="rates_button">Submit</button>
     </form>
     <script src="{% static 'js/air-datepicker.js' %}"></script>
     <script>

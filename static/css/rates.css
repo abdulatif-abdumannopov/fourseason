@@ -12,7 +12,7 @@
     font-style: italic;
     letter-spacing: 2px;
 }
-.rates_first_name_input, .rates_second_name_input{
+.rates_first_name_input, .rates_second_name_input, .rates_phone_number{
     width:  500px;
     height: 40px;
     padding: 5px 10px 5px 10px;
@@ -28,5 +28,97 @@
 .passengers_list{
     box-shadow: 1px 5px 10px 2px #c2bbbb;
     background-color: #fff;
-
+    width: 500px;
+    margin-top: 20px;
+    padding: 20px 40px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    font-family: Verdana, serif;
+    font-size: 20px;
+    letter-spacing: 1px;
+}
+.rates_passengers_box{
+    font-size: 24px;
+    font-family: var(--mon-font);
+    font-style: italic;
+}
+.rates_count_box{
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    position: absolute;
+    right: 40px;
+}
+.rates_adult_box{
+    display: flex;
+    flex-wrap: wrap;
+}
+.rates_date_box{
+    width: 500px;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+.rates_start_date, .rates_end_date{
+    width: 200px;
+    height: 30px;
+    padding: 5px 0 5px 10px;
+    font-size: 18px;
+    font-family: var(--mon-font);
+    font-style: italic;
+}
+.rate_date_text{
+    font-family: var(--mon-font);
+    font-size: 24px;
+    font-style: italic;
+}
+.rate_date_box_content{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+.rates_minus, .rates_plus, .rates_minus_child, .rates_plus_child{
+    cursor: pointer;
+}
+.rates_button{
+    background-color: transparent;
+    padding: 10px 50px;
+    font-size: 14px;
+    border: 1px solid black;
+    transition: .4s ease-in-out;
+    text-transform: uppercase;
+    font-family: var(--neue-font);
+    letter-spacing: 1px;
+}
+.rates_button:hover{
+    cursor: pointer;
+    background-color: #000;
+    color: #fff;
+}
+@media screen and (max-width: 560px){
+    .rate_form{
+        padding: 20px;
+    }
+    .rates_first_name_input,
+    .rates_second_name_input,
+    .rates_phone_number,
+    .passengers_list,
+    .rates_date_box{
+        width: 90vw;
+    }
+}
+.rates_adult_box_320{
+    display: none;
+}
+@media screen and (max-width: 320px){
+    .rates_adult_box{
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+    }
+    .rates_count_box{
+        position: static;
+    }
 }

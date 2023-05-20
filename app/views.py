@@ -63,4 +63,22 @@ def history(request):
     return render(request, 'history.html')
 
 def rates(request):
+    if request.method == 'POST':
+        first_name = request.POST.get('first_name')
+        last_name = request.POST.get('last_name')
+        phone = request.POST.get('phone')
+        adult = request.POST.get('adult_count')
+        children = request.POST.get('children_count')
+        start = request.POST.get('start')
+        end = request.POST.get('end')
+        data = {
+            'name': first_name,
+            'lastname': last_name,
+            'phone': phone,
+            'adult': adult,
+            'children': children,
+            'start': start,
+            'end': end
+        }
+        print(data)
     return render(request, 'rates.html')
