@@ -62,6 +62,9 @@ def about(request):
 def history(request):
     return render(request, 'history.html')
 
+def contact(request):
+    return render(request, 'contact.html')
+
 def rates(request):
     if request.method == 'POST':
         first_name = request.POST.get('first_name')

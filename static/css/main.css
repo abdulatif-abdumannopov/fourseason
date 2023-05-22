@@ -97,3 +97,6 @@ footer{
     justify-content: space-between;
     gap: 200px;
 }
+@media screen and (max-width: 1000px){
+
+}

@@ -1,0 +1,59 @@
+.contact_services{
+    width: 500px;
+    height: 40px;
+    padding: 0 0 0 10px;
+    font-size: 18px;
+    color: #646060;
+    font-family: var(--mon-font);
+    letter-spacing: 1px;
+}
+.contact_text_area{
+    width: 500px;
+    resize: none;
+    padding: 10px;
+    height: 200px;
+}
+@media screen and (max-width: 540px){
+    .api_send_form{
+        padding: 20px;
+        align-items: center;
+    }
+    .name_box{
+        flex-direction: column;
+        gap: 40px;
+    }
+    .resident_item,
+    .resident_status_select,
+    .resident_name,
+    .contact_text_area,
+    .contact_services{
+        width: 90vw;
+        padding: 7px 0 7px 10px;
+    }
+    .flex_form_box{
+        margin: 50px 0 100px;
+    }
+}
+@media screen and (max-width: 300px){
+    .contact_services{
+        font-size: 12px;
+    }
+    .resident_button{
+        padding: 7px 50px;
+        font-size: 12px;
+    }
+    .flex_form_box{
+        margin: 0 0 20px;
+    }
+    .resident_item,
+    .resident_status_select,
+    .resident_name,
+    .contact_text_area,
+    .contact_services{
+        width: 90vw;
+        padding: 5px 0 5px 10px;
+    }
+    .contact_text_area{
+        height: 150px;
+    }
+}

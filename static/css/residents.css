@@ -116,7 +116,7 @@
     padding: 10px;
     font-size: 15px;
 }
-.resident_item:focus, .resident_button{
+.resident_item:focus, .resident_button, .resident_name, .resident_status_select, .contact_text_area{
     outline: none;
 }
 .resident_name{

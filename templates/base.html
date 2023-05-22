@@ -15,6 +15,7 @@
     <link rel="stylesheet" href="{% static 'css/history.css' %}">
     <link rel="stylesheet" href="{% static 'css/rates.css' %}">
     <link rel="stylesheet" href="{% static 'css/air-datepicker.css' %}">
+    <link rel="stylesheet" href="{% static 'css/contact.css' %}">
 </head>
 <body>
     <header>
@@ -41,7 +42,7 @@
                 <ul class="column_items">
                     <li><a href="{% url 'about' %}" class="column_items">about us</a></li>
                     <li><a href="" class="column_items">careers</a></li>
-                    <li><a href="" class="column_items">contact us</a></li>
+                    <li><a href="{% url 'contact' %}" class="column_items">contact us</a></li>
                 </ul>
             </div>
             <div class="colum">
