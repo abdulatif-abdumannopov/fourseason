@@ -97,6 +97,126 @@ footer{
     justify-content: space-between;
     gap: 200px;
 }
-@media screen and (max-width: 1000px){
+.head_small{
+    display: none;
+}
+.main_menu_items{
+    height: 2px;
+    width: 20px;
+    background-color: #000;
+}
+.main_menu_box{
+    position: relative;
+    width: 30px;
+    height: 20px;
+    cursor: pointer;
+}
+.main_menu_box:before,
+.main_menu_box:after{
+    content: '';
+    background-color: #000;
+    height: 1px;
+    width: 100%;
+    position: absolute;
+    transition: .3s ease-in-out;
+}
+.main_menu_box span{
+    position: absolute;
+    background-color: #000;
+    height: 1px;
+    width: 100%;
+    top: 50%;
+    transition: .3s ease-in-out;
+}
+.main_menu_box:before{
+    top: 0;
+}
+.main_menu_box:after{
+    bottom: 0;
+}
+.main_menu_box.act:before{
+    top: 0;
+    transform: rotate(45deg);
 
+}
+.main_menu_box.act span{
+    transform: scale(0);
+}
+.main_menu_box.act:after{
+    bottom: -1px;
+    transform: rotate(-45deg);
+}
+.main_menu_box.act{
+    height: auto;
+    cursor: pointer;
+    position: fixed;
+    top: 50px;
+    right: 20px;
+    z-index: 2;
+}
+.menu_logo_main{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: fixed;
+    height: 100vh;
+    z-index: 1;
+    top: -120%;
+    right: 0;
+    padding: 100px 50px;
+    background-color: #fff;
+    gap: 20px;
+}
+.menu_logo_main.act{
+    top: 0;
+}
+@media screen and (max-width: 1000px){
+    .head{
+        display: none;
+    }
+    .head_small{
+        display: flex;
+        justify-content: space-between;
+        padding: 20px;
+        align-items: center;
+    }
+}
+@media screen and (max-width: 770px){
+    .footer_box{
+        gap: 0;
+        justify-content: space-between;
+        width: 100%;
+    }
+}
+@media screen and (max-width: 460px){
+    .footer_box{
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        gap: 30px;
+    }
+    .footer_logo{
+        width: 60%;
+        height: auto;
+    }
+    .logo{
+        width: 75%;
+    }
+}
+@media screen and (max-width: 360px){
+    .nav_links_item{
+        font-size: 12px;
+    }
+    .nav_button{
+        font-size: 8px;
+        width: 50vw;
+        padding: 5px 0;
+        text-align: center;
+    }
+}
+@media screen and (max-width: 216px){
+    .nav_links_item{
+        font-size: 7px;
+    }
 }

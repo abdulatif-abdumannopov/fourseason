@@ -1,87 +1,160 @@
-from django.shortcuts import render
+from datetime import date
+
+from django.contrib.auth import logout, login, authenticate
+from django.shortcuts import render, redirect
+from django.urls import reverse_lazy
+
 from .models import *
 from .serializers import *
 from rest_framework.generics import ListCreateAPIView, RetrieveDestroyAPIView, RetrieveUpdateAPIView
 from rest_framework import permissions
 from .permissions import *
+import requests
+from .froms import *
+from django.contrib.auth.views import LoginView
+from django.views.generic import CreateView
+from django.contrib.auth.decorators import login_required
 
-class PostList(ListCreateAPIView):
-    queryset = PostModel.objects.all()
+
+class ReservationList(ListCreateAPIView):
+    queryset = ReservationModel.objects.all()
     serializer_class = PostSerializer
-    permission_classes = (IsAdminOrReadOnly,)
-
-    def perform_create(self, serializer):
-        serializer.save(user=self.request.user)
-
-class PostDelete(RetrieveDestroyAPIView):
-    queryset = PostModel.objects.all()
-    serializer_class = PostSerializer
-    permission_classes = (IsOwnerOrReadOnly,)
 
 
-class PostUpdate(RetrieveUpdateAPIView):
-    queryset = PostModel.objects.all()
-    serializer_class = PostSerializer
-    permission_classes = (IsOwnerOrReadOnly,)
+class RatesList(ListCreateAPIView):
+    queryset = RatesModel.objects.all()
+    serializer_class = RatesSerializer
+
+
+class ContactList(ListCreateAPIView):
+    queryset = ContactModel.objects.all()
+    serializer_class = ContactSerializer
+
 
 def home(request):
     return render(request, 'home.html')
 
+
 def maldives(request):
     return render(request, 'maldives.html')
 
+
 def residents(request):
+    form = ReservationForm()
     if request.method == 'POST':
-        status = request.POST.get('status')
-        first_name = request.POST.get('name')
-        last_name = request.POST.get('lastname')
-        email = request.POST.get('email')
-        services = request.POST.get('services')
-        data = {
-            'status': status,
-            'name': first_name,
-            'lastname': last_name,
-            'email': email,
-            'services': services,
-        }
-        print(data)
-    return render(request, 'residents.html')
+        form = ReservationForm(request.POST)
+        if form.is_valid():
+            form.save()
+            form = ReservationForm()
+
+    return render(request, 'residents.html', {'reservation_form': form})
+
 
 def dining(request):
     return render(request, 'dinning.html')
 
+
 def gift_cards(request):
-    return render(request, 'gift_cards.html')
+    form = ReservationForm()
+    if request.method == 'POST':
+        form = ReservationForm(request.POST)
+        if form.is_valid():
+            form.save()
+            form = ReservationForm()
+
+    return render(request, 'gift_cards.html', {'form': form})
+
 
 def jet(request):
-    return render(request, 'jet.html')
+    form = ReservationForm()
+    if request.method == 'POST':
+        form = ReservationForm(request.POST)
+        if form.is_valid():
+            form.instance.reservation = 'jet'
+            form.save()
+            form = ReservationForm()
+    return render(request, 'jet.html', {'form': form})
+
 
 def about(request):
     return render(request, 'about.html')
 
+
 def history(request):
     return render(request, 'history.html')
 
+
 def contact(request):
-    return render(request, 'contact.html')
+    form = ContactForm()
+    if request.method == 'POST':
+        form = ContactForm(request.POST)
+        if form.is_valid():
+            form.save()
+            form = ContactForm()
+        else:
+            form = ContactForm()
+    return render(request, 'contact.html', {'form': form})
+
 
 def rates(request):
+    errors = ''
+    form = RatesForm()
     if request.method == 'POST':
-        first_name = request.POST.get('first_name')
-        last_name = request.POST.get('last_name')
-        phone = request.POST.get('phone')
-        adult = request.POST.get('adult_count')
-        children = request.POST.get('children_count')
-        start = request.POST.get('start')
-        end = request.POST.get('end')
-        data = {
-            'name': first_name,
-            'lastname': last_name,
-            'phone': phone,
-            'adult': adult,
-            'children': children,
-            'start': start,
-            'end': end
-        }
-        print(data)
-    return render(request, 'rates.html')
+        form = RatesForm(request.POST)
+        if form.is_valid():
+            form.save()
+            form = RatesForm()
+        else:
+            form = RatesForm()
+            errors = 'Incorrectly completed form'
+
+    return render(request, 'rates.html', {'form': form, 'errors': errors})
+
+
+@login_required(login_url='login')
+def admin_panel(request):
+    reservation = ReservationModel.objects.all()
+    rate = RatesModel.objects.all()
+    contacts = ContactModel.objects.all()
+    today = date.today().strftime('%Y-%m-%d')
+    return render(request, 'admin_panel.html', {'reservation': reservation,
+                                                'today': today,
+                                                'rates': rate,
+                                                'contact': contacts})
+
+
+def login_user(request):
+    if request.method == 'POST':
+        username = request.POST.get('username')
+        password = request.POST.get('password')
+        user = authenticate(request, username=username, password=password)
+        if user is not None:
+            login(request, user)
+            return redirect('admin_panel')
+        else:
+            context = {'form': LoginUserForm, 'error_message': 'Login or password don\'t found'}
+            return render(request, 'login.html', context)
+    else:
+        context = {'form': LoginUserForm}
+        return render(request, 'login.html', context)
+
+
+def register(request):
+    if request.method == 'POST':
+        form = RegisterUserForm(request.POST, request.FILES)
+        if form.is_valid():
+            user = form.save(commit=False)
+            user.save()
+            login(request, user)
+            return redirect('admin_panel')
+        else:
+            context = {'form': RegisterUserForm, 'error': 'Login or password error'}
+            return render(request, 'register.html', context)
+    else:
+        form = RegisterUserForm()
+    return render(request, 'register.html', {'form': form})
+
+
+def logo_out(request):
+    logout(request)
+    return redirect('login')

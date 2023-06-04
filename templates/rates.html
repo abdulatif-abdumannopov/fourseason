@@ -4,17 +4,18 @@
 {% block content %}
     <form method="post" class="rate_form">
     {% csrf_token %}
+        {{ errors }}
         <div class="rates_first_name_block">
             <p class="rates_first_name">First Name</p>
-            <input type="text" class="rates_first_name_input" name="first_name">
+            {{ form.firstname }}
         </div>
         <div class="rates_second_name_block">
             <p class="rates_second_name">Last Name</p>
-            <input type="text" class="rates_second_name_input" name="last_name">
+            {{ form.lastname }}
         </div>
         <div class="rates_second_name_block">
             <p class="rates_second_name">Phone Number</p>
-            <input type="text" class="rates_phone_number" name="phone">
+            {{ form.phone }}
         </div>
         <div class="rates_passengers_box">
             Passengers
@@ -24,7 +25,7 @@
                     <div class="rates_count_box">
                         <div class="rates_minus">-</div>
                         <div class="rates_count">1</div>
-                        <input type="hidden" class="rates_count_input" name="adult_count">
+                        {{ form.adult }}
                         <div class="rates_plus">+</div>
                     </div>
                 </div>
@@ -33,7 +34,7 @@
                     <div class="rates_count_box">
                         <div class="rates_minus_child">-</div>
                         <div class="rates_count_child">0</div>
-                        <input type="hidden" class="rates_count_input_children" name="children_count">
+                        {{ form.children }}
                         <div class="rates_plus_child">+</div>
                     </div>
                 </div>
@@ -42,17 +43,18 @@
         <div class="rates_date_box">
             <div class="rate_date_box_content">
                 <div class="rate_date_text">Check - in</div>
-                <input type="text" class="rates_start_date" name="start">
+                {{ form.start }}
             </div>
             <div class="rate_date_box_content">
                 <div class="rate_date_text">Check - out</div>
-                <input type="text" class="rates_end_date" name="end">
+                {{ form.end }}
             </div>
         </div>
         <button type="submit" class="rates_button">Submit</button>
     </form>
     <script src="{% static 'js/air-datepicker.js' %}"></script>
     <script>
+        {#document.querySelector('.rates_button').textContent = new Date()#}
         let start = new AirDatepicker('.rates_start_date', {
             locale: {
               days: ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'],
@@ -66,11 +68,13 @@
               timeFormat: 'hh:mm aa',
               firstDay: 0
             },
+            minDate: new Date(),
             onSelect({date}) {
+                let nextDay = new Date(date.getTime() + 24 * 60 * 60 * 1000);
                 end.update({
-                    minDate: date
+                    minDate: nextDay,
                 })
-            }
+            },
         })
         let end = new AirDatepicker('.rates_end_date', {
             locale: {
@@ -89,6 +93,7 @@
                 start.update({
                     minDate: date
                 })
+                start.selectDate();
             }
         })
     </script>

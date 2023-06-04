@@ -30,6 +30,20 @@
             </ul>
             <a class="nav_button" href="{% url 'rates' %}">CHECK RATES</a>
         </div>
+        <div class="head_small">
+            <a href="{% url 'home' %}"><img class="logo" src="{% static 'logo/four-seasons-hotels-limited-vector-logo.svg' %}" alt=""></a>
+            <div class="main_menu_box">
+                <span></span>
+            </div>
+            <ul class="menu_logo_main">
+                    <li class="nav_links"><a href="{% url 'maldives' %}" class="nav_links_item">HOTEL & RESORTS</a></li>
+                    <li class="nav_links"><a href="{% url 'jet' %}" class="nav_links_item">PRIVATE JET</a></li>
+                    <li class="nav_links"><a href="{% url 'dining' %}" class="nav_links_item">DINING</a></li>
+                    <li class="nav_links"><a href="{% url 'residents' %}" class="nav_links_item">RESIDENTS</a></li>
+                    <li class="nav_links"><a href="{% url 'history' %}" class="nav_links_item">HISTORY</a></li>
+                    <a class="nav_button" href="{% url 'rates' %}">CHECK RATES</a>
+            </ul>
+        </div>
     </header>
     {% block content %}
 
@@ -48,14 +62,14 @@
             <div class="colum">
                 <div class="column_title">Reservations</div>
                 <ul class="column_items">
-                    <li><a href="" class="column_items">find a reservation</a></li>
+                    <li><a href="{% url 'rates' %}" class="column_items">find a reservation</a></li>
                 </ul>
             </div>
             <div class="colum">
                 <div class="column_title">More</div>
                 <ul class="column_items">
                     <li><a href="{% url 'gift_cards' %}" class="column_items">gift cards</a></li>
-                    <li><a href="" class="column_items">extraordinary <br> experiences</a></li>
+                    <li><a href="{% url 'jet' %}" class="column_items">extraordinary <br> experiences</a></li>
                 </ul>
             </div>
         </div>
@@ -65,5 +79,6 @@
     <script src="{% static 'js/dinning.js' %}"></script>
     <script src="{% static 'js/rates.js' %}"></script>
     <script src="{% static 'js/air-datepicker.js' %}"></script>
+    <script src="{% static 'js/navigation.js' %}"></script>
 </body>
 </html>

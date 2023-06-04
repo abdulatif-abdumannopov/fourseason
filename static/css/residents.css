@@ -106,7 +106,9 @@
     align-items: flex-end;
 }
 .resident_item{
-    padding: 10px 300px 10px 10px;
+    padding: 1px 10px;
+    width: 500px;
+    height: 41px;
     color: #000;
     font-size: 15px;
 }
@@ -120,8 +122,10 @@
     outline: none;
 }
 .resident_name{
-    padding: 10px 150px 10px 10px;
+    height: 41px;
+    padding: 1px 10px;
     font-size: 15px;
+    width: 345px;
 }
 .flex_form_box{
     display: flex;

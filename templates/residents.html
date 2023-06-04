@@ -86,25 +86,12 @@
         <form class="api_send_form" method="post">
         {% csrf_token %}
             <div class="name_box">
-                <input type="text" id="resident_status_select" list="options" placeholder="Status" class="resident_status_select" name="status">
-                <datalist id="options">
-                      <option value="Mr">
-                      <option value="Mrs">
-                      <option value="Ms">
-                      <option value="Dr">
-                </datalist>
-                <input type="text" placeholder="First Name" class="resident_name" name="name">
+                {{ reservation_form.status }}
+                {{ reservation_form.firstname }}
             </div>
-            <input type="text" placeholder="Last Name" class="resident_item" name="lastname">
-            <input type="text" placeholder="Email" class="resident_item" name="email">
-            <select name="services" class="resident_services">
-                <option value="reservation">Reservation</option>
-                <option value="hotel">Hotel</option>
-                <option value="food">Food</option>
-                <option value="gift card">Gift Card</option>
-                <option value="loss">Loss</option>
-                <option value="other">Other</option>
-            </select>
+            {{ reservation_form.lastname }}
+            {{ reservation_form.email }}
+            {{ reservation_form.reservation }}
             <div class="resident_but_box">
                 <button class="resident_button" type="submit">submit</button>
             </div>

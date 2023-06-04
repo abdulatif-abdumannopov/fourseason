@@ -13,6 +13,7 @@
 .first_text_item{
    font-family: "Neue Helvetica", helvetica, sans-serif;
    font-weight: 700;
+   text-align: center;
 }
 .first_text_item_box{
    display: flex;
@@ -31,7 +32,7 @@
 }
 .slide_image{
    width: 100%;
-   height: 800px;
+   height: 100%;
 }
 .carousel{
    width: 95%;
@@ -169,6 +170,7 @@
    display: flex;
    justify-content: center;
    margin: 100px 0 50px;
+   text-align: center;
 }
 .insta_text{
    font-family: "Monotype Garamond", garamond, serif;
@@ -233,4 +235,115 @@
    font-size: 24px;
    font-weight: 200;
    color: #fff;
+   text-align: center;
+}
+@media screen and (max-width: 760px){
+   .first_slide_title{
+      font-size: 20px;
+   }
+   .first_slide_title_text{
+      font-size: 25px;
+   }
+   .first_slide_button{
+      font-size: 15px;
+      padding: 10px 40px;
+   }
+}
+@media screen and (max-width: 600px){
+   .first_slide_box{
+      top: 10%;
+      left: 20%;
+      gap: 15px;
+   }
+   .first_slide_title{
+      font-size: 16px;
+   }
+   .first_slide_title_text{
+      font-size: 20px;
+   }
+   .first_slide_button{
+      font-size: 10px;
+      padding: 10px 40px;
+   }
+   .dot{
+      width: 20%;
+   }
+   .prev, .next{
+      font-size: 25px;
+   }
+   .insta_text{
+      font-size: 18px;
+   }
+}
+@media screen and (max-width: 400px){
+   .first_slide_title{
+      font-size: 7px;
+   }
+   .first_slide_title_text{
+      font-size: 7px;
+   }
+   .first_slide_button{
+      font-size: 5px;
+      padding: 3px 10px;
+   }
+   .first_slide_box{
+      top: 10%;
+      left: 10%;
+      gap: 10px;
+   }
+   .instagram_image{
+      width: 100%;
+      height: 100%;
+   }
+   .table_image, .safe_image{
+      width: 100%;
+      height: auto;
+   }
+   .big_content, .beach_content{
+      height: auto;
+   }
+   .about_content{
+      gap: 30px;
+   }
+   .first_text_item{
+      font-size: 16px;
+   }
+   .first_underline{
+      width: 80vw;
+   }
+   .first_text_content{
+      font-size: 14px;
+   }
+   .first_text_title{
+      font-size: 14px;
+   }
+   .prev, .next{
+      font-size: 16px;
+      top: 60%;
+   }
+   .prev{
+      left: -5%;
+   }
+   .explore_text{
+      font-size: 16px;
+   }
+   .big_content, .food_content, .beach_content{
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      width: 90vw;
+   }
+   .food_content_title{
+      font-size: 10px;
+   }
+   .insta_text{
+      font-size: 14px;
+      line-height: 27px;
+   }
+   .history_title{
+      font-size: 16px;
+   }
+   .history_text{
+      font-size: 14px;
+   }
 }

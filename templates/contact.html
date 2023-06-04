@@ -4,35 +4,21 @@
 {% endblock %}
 {% block content %}
         <div class="history_start_title_box">
-            <div class="history_start_italic_title">Four Seasons History</div>
-            <div class="history_start_big_title">FOUR SEASONS IS BORN</div>
+            <div class="history_start_italic_title">Four Seasons Contact</div>
+            <div class="history_start_big_title">FOUR SEASONS CONTACT FORM</div>
         </div>
         <div class="flex_form_box">
         <form class="api_send_form" method="post">
         {% csrf_token %}
             <div class="name_box">
-                <input type="text" id="resident_status_select" list="options" placeholder="Status" class="resident_status_select" name="status">
-                <datalist id="options">
-                      <option value="Mr">
-                      <option value="Mrs">
-                      <option value="Ms">
-                      <option value="Dr">
-                </datalist>
-                <input type="text" placeholder="First Name" class="resident_name" name="name">
+                {{ form.status }}
+                {{ form.firstname }}
             </div>
-            <input type="text" placeholder="Last Name" class="resident_item" name="lastname">
-            <input type="text" placeholder="Email" class="resident_item" name="email">
-            <input type="text" placeholder="Phone" class="resident_item" name="phone">
-            <select name="services" class="contact_services" placeholder="Sevices">
-                <option value="reservation">Make or Change Reservation</option>
-                <option value="hotel">General Question</option>
-                <option value="food">Travel Agent Inquiry</option>
-                <option value="gift card">Technical Support</option>
-                <option value="loss">Office Of The President</option>
-                <option value="loss">Comments & Concerns</option>
-                <option value="other">Other</option>
-            </select>
-            <textarea placeholder="How we can help you?" class="contact_text_area"></textarea>
+            {{ form.lastname }}
+            {{ form.email }}
+            {{ form.phone }}
+            {{ form.reservation }}
+            {{ form.text }}
             <div class="resident_but_box">
                 <button class="resident_button" type="submit">submit</button>
             </div>

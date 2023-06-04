@@ -124,9 +124,6 @@
     flex-direction: column;
 }
 @media screen and (max-width: 700px){
-    .diving_box_description{
-        top: 200px;
-    }
     .diving_box_text{
         overflow-y: scroll;
     }
@@ -150,8 +147,9 @@
   font-style: italic;
   line-height: 72px;
   color: #fff;
-  max-width: 100%;
+  width: 100%;
   text-align: center;
+  padding: 20px;
 }
 
 .diving_ocean_author {
@@ -177,32 +175,122 @@
 
 @media screen and (max-width: 1200px) {
   .diving_ocean_text {
-    font-size: 36px;
+    font-size: 28px;
   }
     .diving_ocean_author {
         bottom: calc(5% + 50px);
     }
 }
-
-@media screen and (max-width: 460px) {
+@media screen and (max-width: 1000px){
+    .maldive_onboard_box{
+        flex-direction: column;
+    }
+    .maldive_onboard_column{
+        width: 50vw;
+    }
+}
+@media screen and (max-width: 760px) {
+    .festival_title{
+        font-size: 18px;
+    }
+    .diving_ocean_text{
+        font-size: 24px;
+        line-height: 50px;
+    }
+}
+@media screen and (max-width: 680px) {
+    .diving_ocean_text{
+        font-size: 18px;
+        top: 40%;
+    }
+    .diving_box_title {
+        top: 10px;
+        font-size: 18px;
+    }
+    .diving_box_description{
+        top: 100px;
+    }
+    .maldive_trt_block{
+        padding: 0;
+        margin-bottom: 50px;
+    }
+    .maldives_title_text{
+        font-size: 18px;
+    }
+    .maldives_title_block{
+        width: 100vw;
+        padding: 100px 30px;
+    }
+}
+@media screen and (max-width: 620px) {
+    .maldive_onboard_box{
+        flex-direction: unset;
+    }
+    .maldive_onboard_column{
+        width: min-content;
+    }
+    .festival_title{
+        white-space: unset;
+        width: 100%;
+        text-align: center;
+        padding: 0 20px;
+    }
+    .maldives_title_content{
+        font-size: 12px;
+    }
+}
+@media screen and (max-width: 470px) {
     .diving_box_description {
-        top: 150px;
+        top: 100px;
+        font-size: 12px;
+    }
+    .diving_box_title{
+        font-size: 14px;
     }
 
     .diving_box_text {
         overflow-y: scroll;
     }
 
-    .diving_box_title {
-        top: 10px;
-    }
-
     .diving_ocean_text {
-        font-size: 24px;
-        line-height: 36px;
+        font-size: 14px;
+        line-height: 24px;
+        top: 30%;
     }
 
     .diving_ocean_author {
         bottom: calc(5% + 50px);
+    }
+}
+@media screen and (max-width: 360px) {
+    .diving_ocean{
+        display: none;
+    }
+    .diving_box_description{
+        line-height: 20px;
+    }
+    .festival_title{
+        padding: 0;
+        font-size: 14px;
+    }
+    .maldive_onboard_image{
+        width: 90vw;
+    }
+}
+@media screen and (max-width: 240px) {
+    .diving_box_title{
+        font-size: 12px;
+    }
+    .diving_box_text{
+        overflow-x: hidden;
+    }
+    .maldive_onboard_column_content{
+        font-size: 14px;
+    }
+    .maldive_onboard_title{
+        text-align: center;
+    }
+    .maldives_title_block{
+        padding: 50px 0;
     }
 }

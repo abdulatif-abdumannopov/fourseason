@@ -1,0 +1,102 @@
+<html lang="en">
+{% load static %}
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+    content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Administration</title>
+    <link rel="stylesheet" href="{% static 'css/admin_panel.css' %}">
+</head>
+<body>
+    <header>
+        <div class="admin_head">
+            <a href="{% url 'home' %}"><img src="{% static 'logo/four-seasons-hotels-limited-vector-logo.svg' %}" alt="logo" class="admin_header_logo"></a>
+            <ul class="admin_nav">
+                <li class="admin_nav_items activated" onclick="showContent(1, this)">Reservation</li>
+                <li class="admin_nav_items" onclick="showContent(2, this)">Jet</li>
+                <li class="admin_nav_items" onclick="showContent(3, this)">Contact</li>
+                <li class="admin_nav_items" onclick="showContent(4, this)">Rates</li>
+            </ul>
+        </div>
+        <div class="admin_head_small">
+            <a href="{% url 'home' %}"><img src="{% static 'logo/four-seasons-hotels-limited-vector-logo.svg' %}" alt="logo" class="admin_header_logo"></a>
+            <div class="admin_menu">
+                <span></span>
+            </div>
+            <ul class="admin_nav_small">
+                <li class="admin_nav_items"><a href="{% url 'logout' %}" class="logout">{{ request.user.username }}</a></li>
+                <li class="admin_nav_items activated" onclick="showContent(1, this)">Reservation</li>
+                <li class="admin_nav_items" onclick="showContent(2, this)">Jet</li>
+                <li class="admin_nav_items" onclick="showContent(3, this)">Contact</li>
+                <li class="admin_nav_items" onclick="showContent(4, this)">Rates</li>
+                <li class="admin_nav_items"><a href="{% url 'register' %}" class="register">Register</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <div id="content-1" class="hidden_show hidden">
+        <div class="admin_panel_date_title">Today</div>
+        {% for i in reservation %}
+            {% if i.reservation != 'Jet' and i.created.date|date:"Y-m-d" == today %}
+                <div class="appeal_box">
+                    <div class="appeal_name">{{ i.status }}.{{ i.lastname }}</div>
+                    <a href="https://www.gmail.com" target="_blank" class="appeal_email">{{ i.email }}</a>
+                    <div class="appeal_reservation">Reservation type: <span>{{ i.reservation }}</span></div>
+                    <div class="time">{{ i.created.time }}</div>
+                </div>
+            {% endif %}
+        {% endfor %}
+        <div class="admin_panel_date_title">Other</div>
+            {% for i in reservation %}
+                {% if i.reservation != 'Jet' and i.created.date|date:"Y-m-d" != today %}
+                    <div class="appeal_box">
+                        <div class="appeal_name">{{ i.status }}.{{ i.lastname }}</div>
+                        <a href="https://www.gmail.com" target="_blank" class="appeal_email">{{ i.email }}</a>
+                        <div class="appeal_reservation">Reservation type: <span>{{ i.reservation }}</span></div>
+                        <div class="time">{{ i.created.date }}</div>
+                    </div>
+                {% endif %}
+            {% endfor %}
+    </div>
+
+    <div id="content-2" class="hidden_show hidden">
+        {% for i in reservation %}
+            {% if i.reservation == 'Jet' %}
+                <div class="appeal_box_jet">
+                    <div class="appeal_name">{{ i.status }}.{{ i.lastname }}</div>
+                    <a href="https://www.gmail.com" target="_blank" class="appeal_email">{{ i.email }}</a>
+                    <div class="time_plane">{{ i.created.date|date:"d-m-Y" }}</div>
+                </div>
+            {% endif %}
+        {% endfor %}
+    </div>
+    <div id="content-3" class="hidden_show hidden">
+        {% for i in contact %}
+            <div class="appeal_box_contact">
+                <div class="appeal_name">{{ i.status }}.{{ i.lastname }}</div>
+                <a href="https://www.gmail.com" target="_blank" class="appeal_email">{{ i.email }}</a>
+                <a href="tel: {{ i.phone }}" class="appeal_phone">{{ i.phone }}</a>
+                <div class="appeal_reservation">Reservation type: <span>{{ i.reservation }}</span></div>
+                <div class="appeal_text"><span>Text:</span> {{ i.text }}</div>
+                <div class="time">{{ i.created.date|date:"d-m-Y" }}</div>
+            </div>
+        {% endfor %}
+    </div>
+    <div id="content-4" class="hidden_show ">
+        {% for i in rates %}
+            <div class="appeal_box_reservation">
+                <div class="appeal_name">{{ i.lastname }} {{ i.firstname }}</div>
+                <a href="tel: {{ i.phone }}" class="appeal_phone">{{ i.phone }}</a>
+                <div class="appeal_reservation">Start: <span>{{ i.start }}</span></div>
+                <div class="appeal_reservation">End: <span>{{ i.end }}</span></div>
+                <div class="appeal_reservation">Adults: <span>{{ i.adult }}</span></div>
+                <div class="appeal_reservation">Children: <span>{{ i.children }}</span></div>
+
+                <div class="time_rates">{{ i.created.date|date:"d-m-Y" }}</div>
+            </div>
+        {% endfor %}
+    </div>
+    <script src="{% static 'js/admin_panel.js' %}"></script>
+</body>
+</html>
