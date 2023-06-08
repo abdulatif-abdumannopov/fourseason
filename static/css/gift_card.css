@@ -8,6 +8,7 @@
     font-family: helveticaNeueThin, sans-serif;
     font-size: 70px;
     font-weight: 100;
+    letter-spacing: 2px;
 }
 .gift_hr_block{
     width: 100px;
@@ -82,4 +83,47 @@
 }
 .hid{
     display: none;
+}
+@media screen and (max-width: 540px){
+    .gift_using_block_text{
+        width: 90vw;
+    }
+    .gift_start_big_title{
+        font-size: 40px;
+        text-align: center;
+    }
+    .gift_start_small_title{
+        text-align: center;
+    }
+    .gift_using_image{
+        width: 100%;
+        height: auto;
+    }
+    .gift_card_buy{
+        padding: 10px 0;
+    }
+    .gift_using_block{
+        gap: 20px;
+    }
+}
+@media screen and (max-width: 300px){
+    .gift_second_title_block_title, .gift_buy_title, .gift_using_title{
+        font-size: 16px;
+    }
+    .gift_start_big_title{
+        font-size: 24px;
+    }
+    .gift_start_small_title{
+        font-size: 14px;
+    }
+    .gift_second_title_text, .gift_title_text, .gift_using_text{
+        font-size: 12px;
+        line-height: 18px;
+    }
+    .gift_second_title_block{
+        padding: 20px 0;
+    }
+    .gift_using_block{
+        margin-top: 30px;
+    }
 }

@@ -8,6 +8,7 @@ urlpatterns = [
     path('register', register, name='register'),
     path('logout', logo_out, name='logout'),
     path('admin_panel', admin_panel, name='admin_panel'),
+    path('admin_full', admin_panel_full, name='admin_full'),
     path('maldives', maldives, name='maldives'),
     path('residents', residents, name='residents'),
     path('dining', dining, name='dining'),

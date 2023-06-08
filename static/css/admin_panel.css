@@ -39,6 +39,12 @@
     font-weight: 700;
     font-family: var(--neue-font);
     letter-spacing: 3px;
+    display: flex;
+    justify-content: center;
+}
+.admin_panel_date_title a{
+    text-decoration: none;
+    color: #000;
 }
 .appeal_name{
     text-transform: capitalize;
@@ -127,7 +133,7 @@
     bottom: 0;
 }
 .admin_menu.act:before{
-    top: 0;
+    top: 20px;
     transform: rotate(45deg);
 
 }
@@ -135,11 +141,12 @@
     transform: scale(0);
 }
 .admin_menu.act:after{
-    bottom: -1px;
+    bottom: 9px;
     transform: rotate(-45deg);
 }
 .admin_menu.act{
-    height: auto;
+    height: 30px;
+    width: 30px;
     cursor: pointer;
     position: fixed;
     top: 50px;
@@ -263,6 +270,9 @@
     }
     .appeal_box_reservation{
         width: 90vw;
+    }
+    .admin_panel_date_title{
+        font-size: 18px;
     }
 }
 @media screen and (max-width: 200px){

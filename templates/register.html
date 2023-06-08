@@ -3,6 +3,7 @@
 {% block title %}Register{% endblock %}
 {% block content %}
 <link rel="stylesheet" href="{% static 'css/login.css' %}">
+    {% if request.user.is_superuser %}
     <form method="post" class="login_form">
         {% csrf_token %}
             <div class="login_box">
@@ -25,4 +26,7 @@
             </div>
         <button type="submit" class="rates_button">Login</button>
     </form>
+    {% else %}
+        <div class="rights">You don't have enough <a href="{% url 'logout' %}">rights</a></div>
+    {% endif %}
 {% endblock %}

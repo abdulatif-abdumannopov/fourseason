@@ -113,11 +113,22 @@ def rates(request):
 
 @login_required(login_url='login')
 def admin_panel(request):
-    reservation = ReservationModel.objects.all()
+    reservation = ReservationModel.objects.all().order_by('-created')
     rate = RatesModel.objects.all()
     contacts = ContactModel.objects.all()
     today = date.today().strftime('%Y-%m-%d')
     return render(request, 'admin_panel.html', {'reservation': reservation,
+                                                'today': today,
+                                                'rates': rate,
+                                                'contact': contacts})
+
+@login_required(login_url='login')
+def admin_panel_full(request):
+    reservation = ReservationModel.objects.all().order_by('-created')
+    rate = RatesModel.objects.all()
+    contacts = ContactModel.objects.all()
+    today = date.today().strftime('%Y-%m-%d')
+    return render(request, 'admin_full.html', {'reservation': reservation,
                                                 'today': today,
                                                 'rates': rate,
                                                 'contact': contacts})
@@ -132,13 +143,14 @@ def login_user(request):
             login(request, user)
             return redirect('admin_panel')
         else:
-            context = {'form': LoginUserForm, 'error_message': 'Login or password don\'t found'}
+            context = {'form': LoginUserForm}
             return render(request, 'login.html', context)
     else:
         context = {'form': LoginUserForm}
         return render(request, 'login.html', context)
 
 
+@login_required(login_url='login')
 def register(request):
     if request.method == 'POST':
         form = RegisterUserForm(request.POST, request.FILES)
@@ -155,6 +167,7 @@ def register(request):
     return render(request, 'register.html', {'form': form})
 
 
+@login_required(login_url='login')
 def logo_out(request):
     logout(request)
     return redirect('login')

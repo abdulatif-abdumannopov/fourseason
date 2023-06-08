@@ -15,7 +15,7 @@
 }
 @media screen and (max-width: 540px){
     .api_send_form{
-        padding: 20px;
+        padding: 20px 0;
         align-items: center;
     }
     .name_box{

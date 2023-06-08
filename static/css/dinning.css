@@ -161,6 +161,7 @@
     display: flex;
     flex-wrap: wrap;
     gap: 30px;
+    justify-content: center;
 }
 .dinning_instagram_description{
     font-family: var(--mon-font);

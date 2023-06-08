@@ -121,4 +121,15 @@
     .rates_count_box{
         position: static;
     }
+    .rates_start_date, .rates_end_date{
+        width: 90vw;
+    }
+}
+@media screen and (max-width: 200px){
+    .passengers_list{
+        padding: 20px 0;
+    }
+    .rates_button{
+        padding: 5px 20px;
+    }
 }

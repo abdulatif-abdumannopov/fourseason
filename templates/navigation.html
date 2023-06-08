@@ -1,0 +1,59 @@
+{% load static %}
+{% if request.user.is_superuser or request.user.is_staff %}
+    <header>
+        <div class="admin_head">
+            <a href="{% url 'home' %}"><img src="{% static 'logo/four-seasons-hotels-limited-vector-logo.svg' %}" alt="logo" class="admin_header_logo"></a>
+            <ul class="admin_nav">
+                <li class="admin_nav_items activated" onclick="showContent(1, this)">Reservation</li>
+                <li class="admin_nav_items" onclick="showContent(2, this)">Jet</li>
+                <li class="admin_nav_items" onclick="showContent(3, this)">Contact</li>
+                <li class="admin_nav_items" onclick="showContent(4, this)">Rates</li>
+            </ul>
+        </div>
+        <div class="admin_head_small">
+            <a href="{% url 'home' %}"><img src="{% static 'logo/four-seasons-hotels-limited-vector-logo.svg' %}" alt="logo" class="admin_header_logo"></a>
+            <div class="admin_menu">
+                <span></span>
+            </div>
+            <ul class="admin_nav_small">
+                <li class="admin_nav_items"><a href="{% url 'logout' %}" class="logout">{{ request.user.username }}</a></li>
+                <li class="admin_nav_items activated" onclick="showContent(1, this)">Reservation</li>
+                <li class="admin_nav_items" onclick="showContent(2, this)">Jet</li>
+                <li class="admin_nav_items" onclick="showContent(3, this)">Contact</li>
+                <li class="admin_nav_items" onclick="showContent(4, this)">Rates</li>
+                {% if request.user.is_superuser %}
+                    <li class="admin_nav_items"><a href="{% url 'register' %}" class="register">Register</a></li>
+                {% endif %}
+            </ul>
+        </div>
+    </header>
+{% else %}
+    <link rel="stylesheet" href="{% static 'css/main.css' %}">
+    <header>
+        <div class="head">
+            <a href="{% url 'home' %}"><img class="logo" src="{% static 'logo/four-seasons-hotels-limited-vector-logo.svg' %}" alt=""></a>
+            <ul class="links_navigation">
+                <li class="nav_links"><a href="{% url 'maldives' %}" class="nav_links_item">HOTEL & RESORTS</a></li>
+                <li class="nav_links"><a href="{% url 'jet' %}" class="nav_links_item">PRIVATE JET</a></li>
+                <li class="nav_links"><a href="{% url 'dining' %}" class="nav_links_item">DINING</a></li>
+                <li class="nav_links"><a href="{% url 'residents' %}" class="nav_links_item">RESIDENTS</a></li>
+                <li class="nav_links"><a href="{% url 'history' %}" class="nav_links_item">HISTORY</a></li>
+            </ul>
+            <a class="nav_button" href="{% url 'rates' %}">CHECK RATES</a>
+        </div>
+        <div class="head_small">
+            <a href="{% url 'home' %}"><img class="logo" src="{% static 'logo/four-seasons-hotels-limited-vector-logo.svg' %}" alt=""></a>
+            <div class="main_menu_box">
+                <span></span>
+            </div>
+            <ul class="menu_logo_main">
+                    <li class="nav_links"><a href="{% url 'maldives' %}" class="nav_links_item">HOTEL & RESORTS</a></li>
+                    <li class="nav_links"><a href="{% url 'jet' %}" class="nav_links_item">PRIVATE JET</a></li>
+                    <li class="nav_links"><a href="{% url 'dining' %}" class="nav_links_item">DINING</a></li>
+                    <li class="nav_links"><a href="{% url 'residents' %}" class="nav_links_item">RESIDENTS</a></li>
+                    <li class="nav_links"><a href="{% url 'history' %}" class="nav_links_item">HISTORY</a></li>
+                    <a class="nav_button" href="{% url 'rates' %}">CHECK RATES</a>
+            </ul>
+        </div>
+    </header>
+{% endif %}

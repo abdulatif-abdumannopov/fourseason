@@ -82,12 +82,26 @@
 .confirm_staff:checked:before, .confirm_user:checked:before{
     left: 20px;
 }
+.rights{
+    font-size: 20px;
+    font-family: var(--neue-font);
+    padding: 20px 0 50px;
+    margin-left: 20%;
+}
+.rights a{
+    text-decoration: none;
+    color: #278d27;
+}
 
 @media screen and (max-width: 320px){
     .rates_button{
         width: 70vw;
     }
-        .rates_button{
+    .rates_button{
         padding: 7px 30px;
+    }
+    .rights{
+        font-size: 14px;
+        margin: 5px;
     }
 }

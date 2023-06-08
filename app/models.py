@@ -7,7 +7,7 @@ class ReservationModel(models.Model):
         ('Reservation', 'Reservation'),
         ('Hotel', 'Hotel'),
         ('Food', 'Food'),
-        ('Gift-card', 'Gift-card'),
+        ('Gift-Card', 'Gift-Card'),
         ('Loss', 'Loss'),
         ('Jet', 'Jet'),
         ('Other', 'Other'),
@@ -34,8 +34,8 @@ class ReservationModel(models.Model):
         return f'{self.status}.{self.lastname}{self.created}'
 
 class RatesModel(models.Model):
-    firstname = models.CharField('First Name', max_length=300)
-    lastname = models.CharField('Last Name', max_length=30)
+    firstname = models.CharField('First Name', max_length=100)
+    lastname = models.CharField('Last Name', max_length=100)
     phone = models.CharField('Phone', max_length=150)
     adult = models.IntegerField('Adult', default=1)
     children = models.IntegerField('Children', default=0)

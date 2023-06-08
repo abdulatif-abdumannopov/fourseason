@@ -12,10 +12,10 @@
 <body>
     {% include 'navigation.html' %}
     {% if request.user.is_superuser or request.user.is_staff %}
-    <div class="admin_panel_date_title"><a href="{% url 'admin_full' %}">Today</a></div>
-    <div id="content-1" class="hidden_show">
+    <div class="admin_panel_date_title"><a href="{% url 'admin_panel' %}">All objects</a></div>
+    <div id="content-1" class="hidden_show hidden">
         {% for i in reservation %}
-            {% if i.reservation != 'Jet' and i.created.date|date:"Y-m-d" == today %}
+            {% if i.reservation != 'Jet' and i.created.date|date:"Y-m-d" != today %}
                 <div class="appeal_box">
                     <div class="appeal_name">{{ i.status }}.{{ i.lastname }}</div>
                     <a href="https://www.gmail.com" target="_blank" class="appeal_email">{{ i.email }}</a>
@@ -28,32 +28,32 @@
 
     <div id="content-2" class="hidden_show hidden">
         {% for i in reservation %}
-            {% if i.reservation == 'Jet' and i.created.date|date:"Y-m-d" == today %}
+            {% if i.reservation == 'Jet' and i.created.date|date:"Y-m-d" != today %}
                 <div class="appeal_box_jet">
                     <div class="appeal_name">{{ i.status }}.{{ i.lastname }}</div>
                     <a href="https://www.gmail.com" target="_blank" class="appeal_email">{{ i.email }}</a>
-                    <div class="time_plane">{{ i.created.time }}</div>
+                    <div class="time_plane">{{ i.created.date|date:"d-m-Y" }}</div>
                 </div>
             {% endif %}
         {% endfor %}
     </div>
     <div id="content-3" class="hidden_show hidden">
         {% for i in contact %}
-            {% if i.created.date|date:"Y-m-d" == today %}
+            {% if i.created.date|date:"Y-m-d" != today %}
                 <div class="appeal_box_contact">
                     <div class="appeal_name">{{ i.status }}.{{ i.lastname }}</div>
                     <a href="https://www.gmail.com" target="_blank" class="appeal_email">{{ i.email }}</a>
                     <a href="tel: {{ i.phone }}" class="appeal_phone">{{ i.phone }}</a>
                     <div class="appeal_reservation">Reservation type: <span>{{ i.reservation }}</span></div>
                     <div class="appeal_text"><span>Text:</span> {{ i.text }}</div>
-                    <div class="time">{{ i.created.time }}</div>
+                    <div class="time">{{ i.created.date|date:"d-m-Y" }}</div>
                 </div>
             {% endif %}
         {% endfor %}
     </div>
-    <div id="content-4" class="hidden_show hidden">
+    <div id="content-4" class="hidden_show ">
         {% for i in rates %}
-            {% if i.created.date|date:"Y-m-d" == today %}
+            {% if i.created.date|date:"Y-m-d" != today %}
                 <div class="appeal_box_reservation">
                     <div class="appeal_name">{{ i.lastname }} {{ i.firstname }}</div>
                     <a href="tel: {{ i.phone }}" class="appeal_phone">{{ i.phone }}</a>
@@ -62,13 +62,13 @@
                     <div class="appeal_reservation">Adults: <span>{{ i.adult }}</span></div>
                     <div class="appeal_reservation">Children: <span>{{ i.children }}</span></div>
 
-                    <div class="time_rates">{{ i.created.time }}</div>
+                    <div class="time_rates">{{ i.created.date|date:"d-m-Y" }}</div>
                 </div>
             {% endif %}
         {% endfor %}
     </div>
     {% else %}
-           <div class="rights">You don't have enough <a href="{% url 'logout' %}">rights</a></div>
+        <div class="rights">You don't have enough <a href="{% url 'logout' %}">rights</a></div>
     {% endif %}
     <script src="{% static 'js/admin_panel.js' %}"></script>
 </body>
