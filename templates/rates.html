@@ -4,7 +4,7 @@
 {% block content %}
     <form method="post" class="rate_form">
     {% csrf_token %}
-        {{ errors }}
+        {{ error }}
         <div class="rates_first_name_block">
             <p class="rates_first_name">First Name</p>
             {{ form.firstname }}
@@ -25,7 +25,7 @@
                     <div class="rates_count_box">
                         <div class="rates_minus">-</div>
                         <div class="rates_count">1</div>
-                        {{ form.adult }}
+                        <div class="hid">{{ form.adult }}</div>
                         <div class="rates_plus">+</div>
                     </div>
                 </div>
@@ -34,7 +34,7 @@
                     <div class="rates_count_box">
                         <div class="rates_minus_child">-</div>
                         <div class="rates_count_child">0</div>
-                        {{ form.children }}
+                        <div class="hid">{{ form.children }}</div>
                         <div class="rates_plus_child">+</div>
                     </div>
                 </div>

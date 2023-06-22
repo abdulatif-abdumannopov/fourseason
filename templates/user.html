@@ -1,0 +1,160 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Administration | Users</title>
+    <link rel="stylesheet" href="{% static 'css/admin_panel.css' %}">
+    <link rel="stylesheet" href="{% static 'css/login.css' %}">
+</head>
+<body>
+    <header>
+        <div class="admin_head">
+            <a href="{% url 'home' %}"><img src="{% static 'logo/four-seasons-hotels-limited-vector-logo.svg' %}" alt="logo" class="admin_header_logo"></a>
+            <div class="admin_menu">
+                <span></span>
+            </div>
+            <ul class="admin_nav_small">
+                <li class="admin_nav_items activated"><a href="{% url 'logout' %}" class="logout">{{ request.user.username }}</a></li>
+                <li class="admin_nav_items" data-index="1" onclick="showContent(1, this)">All</li>
+                <li class="admin_nav_items" data-index="2" onclick="showContent(2, this)">Superusers</li>
+                <li class="admin_nav_items" data-index="3" onclick="showContent(3, this)">Staff</li>
+                <li class="admin_nav_items" data-index="4" onclick="showContent(4, this)">Simple</li>
+                <li class="admin_nav_items"><a href="{% url 'admin_register' %}" class="register">Register</a></li>
+                <li class="admin_nav_items"><a href="{% url 'admin_panel' %}" class="register">Administration</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <div class="search_container">
+        <input name='q' type="text" class="user_search" placeholder="Search"><br>
+    </div>
+    <div id="content-1" class="hidden_show">
+        <table class="user_container">
+            <tr>
+                <th>Username</th>
+                <th>Superuser</th>
+                <th>Staff</th>
+                <th>Delete</th>
+            </tr>
+            {% for i in all_users %}
+                <tr class="user_data_row">
+                {% if i.username == request.user.username or not i.is_superuser %}
+                    <td class="user_data"><a href="{% url 'admin_edit' i.pk %}" class="user_change_link">{{ i.username }}</a></td>
+                {% else %}
+                    <td class="user_data">{{ i.username }}</td>
+                {% endif %}
+                <td>
+                    {% if i.is_superuser %}
+                        <img src="{% static "logo/free-icon-tick-716225.png" %}" alt="true" class="completed_logo">{% else %}<img src="{% static "logo/free-icon-delete-button-5974771.png" %}" alt="false" class="completed_logo">
+                    {% endif %}
+                </td>
+                <td>
+                    {% if i.is_staff %}
+                        <img src="{% static "logo/free-icon-tick-716225.png" %}" alt="true" class="completed_logo">{% else %}<img src="{% static "logo/free-icon-delete-button-5974771.png" %}" alt="false" class="completed_logo">
+                    {% endif %}
+                </td>
+                <td>
+                <a href="{% url 'delete_user' i.pk %}"><img src="{% static "logo/free-icon-delete-6932392.png" %}" alt="true" class="completed_logo"></a>
+            {% endfor %}
+        </table>
+        {% include 'pagination.html' with page=all_users query_param='all' %}
+    </div>
+    <div id="content-2" class="hidden_show hidden">
+        <table class="user_container">
+            <tr>
+                <th>Username</th>
+                <th>Superuser</th>
+                <th>Staff</th>
+                <th>Delete</th>
+            </tr>
+            {% for i in superuser_page %}
+                <tr class="user_data_row">
+                {% if i.username == request.user.username %}
+                    <td class="user_data"><a href="{% url 'admin_edit' i.pk %}" class="user_change_link">{{ i.username }}</a></td>
+                {% else %}
+                    <td class="user_data">{{ i.username }}</td>
+                {% endif %}
+                <td>
+                    <img src="{% static "logo/free-icon-tick-716225.png" %}" alt="true" class="completed_logo">
+                </td>
+                <td>
+                    {% if i.is_staff %}
+                        <img src="{% static "logo/free-icon-tick-716225.png" %}" alt="true" class="completed_logo">{% else %}<img src="{% static "logo/free-icon-delete-button-5974771.png" %}" alt="false" class="completed_logo">
+                    {% endif %}
+                </td>
+                <td>
+                <a href="{% url 'delete_user' i.pk %}"><img src="{% static "logo/free-icon-delete-6932392.png" %}" alt="true" class="completed_logo"></a>
+            {% endfor %}
+        </table>
+        {% include 'pagination.html' with page=superuser_page query_param='superuser' %}
+    </div>
+<div id="content-3" class="hidden_show hidden">
+    <table class="user_container">
+        <tr>
+            <th>Username</th>
+            <th>Superuser</th>
+            <th>Staff</th>
+            <th>Delete</th>
+        </tr>
+        {% for i in staff_page %}
+            {% if i.is_staff %}
+            <tr class="user_data_row">
+                {% if i.username == request.user.username or not i.is_superuser %}
+                    <td class="user_data"><a href="{% url 'admin_edit' i.pk %}" class="user_change_link">{{ i.username }}</a></td>
+                {% else %}
+                    <td class="user_data">{{ i.username }}</td>
+                {% endif %}
+                <td>
+                    {% if i.is_superuser %}
+                        <img src="{% static "logo/free-icon-tick-716225.png" %}" alt="true" class="completed_logo">
+                    {% else %}
+                        <img src="{% static "logo/free-icon-delete-button-5974771.png" %}" alt="false" class="completed_logo">
+                    {% endif %}
+                </td>
+                <td>
+                    <img src="{% static "logo/free-icon-tick-716225.png" %}" alt="true" class="completed_logo">
+                </td>
+                <td>
+                    <a href="{% url 'delete_user' i.pk %}">
+                        <img src="{% static "logo/free-icon-delete-6932392.png" %}" alt="true" class="completed_logo">
+                    </a>
+                </td>
+            </tr>
+            {% endif %}
+        {% endfor %}
+    </table>
+    {% include 'pagination.html' with page=staff_page query_param='staff' %}
+</div>
+
+    <div id="content-4" class="hidden_show hidden">
+        <table class="user_container">
+            <tr>
+                <th>Username</th>
+                <th>Superuser</th>
+                <th>Staff</th>
+                <th>Delete</th>
+            </tr>
+            {% for i in other %}
+                <tr class="user_data_row">
+                <td class="user_data"><a href="{% url 'admin_edit' i.pk %}" class="user_change_link">{{ i.username }}</a></td>
+                <td>
+                    {% if i.is_staff %}
+                        <img src="{% static "logo/free-icon-tick-716225.png" %}" alt="true" class="completed_logo">{% else %}<img src="{% static "logo/free-icon-delete-button-5974771.png" %}" alt="false" class="completed_logo">
+                    {% endif %}
+                </td>
+                <td>
+                    {% if i.is_superuser %}
+                        <img src="{% static "logo/free-icon-tick-716225.png" %}" alt="true" class="completed_logo">{% else %}<img src="{% static "logo/free-icon-delete-button-5974771.png" %}" alt="false" class="completed_logo">
+                    {% endif %}
+                </td>
+                <td>
+                <a href="{% url 'delete_user' i.pk %}"><img src="{% static "logo/free-icon-delete-6932392.png" %}" alt="true" class="completed_logo"></a>
+            {% endfor %}
+        </table>
+        {% include 'pagination.html' with page=other_page query_param='simple' %}
+    </div>
+    <script src="{% static 'js/admin_panel.js' %}"></script>
+    <script src="{% static 'js/admin_users.js' %}"></script>
+</body>
+</html>

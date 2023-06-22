@@ -1,0 +1,64 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Change{% endblock %}
+{% block content %}
+<link rel="stylesheet" href="{% static 'css/login.css' %}">
+    <form method="post" class="login_form">
+        {% csrf_token %}
+            <div class="login_box">
+                <div class="login_item_title">Username</div>
+                {{ form.username }}
+            </div>
+            <div class="login_box">
+                <div class="login_item_title">First Name</div>
+                {{ form.first_name }}
+            </div>
+            <div class="login_box">
+                <div class="login_item_title">Last Name</div>
+                {{ form.last_name }}
+            </div>
+            <div class="login_box">
+                <div class="login_item_title">Email</div>
+                {{ form.email }}
+            </div>
+            <div class="date_box">
+                <div class="date_box_title">
+                    Login
+                </div>
+                <div class="date_box_items">
+                    <div class="date_box_item">
+                        <span class="date_box_value">date:</span>
+                        <span class="date_box_date">{{ last_date|date:'d/m/y' }}</span>
+                    </div>
+                    <div class="date_box_item">
+                        <span class="date_box_value">time:</span>
+                        <span class="date_box_date">{{ last_date|date:'G:i:s' }}</span>
+                    </div>
+                </div>
+            </div>
+            <div class="date_box">
+                <div class="date_box_title">
+                    Registration
+                </div>
+                <div class="date_box_items">
+                    <div class="date_box_item">
+                        <span class="date_box_value">date:</span>
+                        <span class="date_box_date">{{ registered|date:'d/m/y' }}</span>
+                    </div>
+                    <div class="date_box_item">
+                        <span class="date_box_value">time:</span>
+                        <span class="date_box_date">{{ registered|date:'G:i:s' }}</span>
+                    </div>
+                </div>
+            </div>
+            <div class="confirm_box">
+                <span>Staff</span>{{ form.is_staff }}
+            </div>
+            <div class="confirm_box">
+                <span>Superuser</span>{{ form.is_superuser }}
+            </div>
+        <button type="submit" class="rates_button">Edit</button>
+        <span>or <a href="{% url 'password' user.pk %}">change password</a></span>
+    </form>
+    <script src="{% static 'js/edit_user.js' %}"></script>
+{% endblock %}

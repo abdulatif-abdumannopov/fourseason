@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Change{% endblock %}
+{% block content %}
+<link rel="stylesheet" href="{% static 'css/login.css' %}">
+    <form method="post" class="login_form" id="edit_form" data-user-pk="{{ request.user.pk }}">
+        {% csrf_token %}
+            <div class="login_box">
+                <div class="login_item_title">Username</div>
+                {{ form.username }}
+            </div>
+            <div class="login_box">
+                <div class="login_item_title">First Name</div>
+                {{ form.first_name }}
+            </div>
+            <div class="login_box">
+                <div class="login_item_title">Last Name</div>
+                {{ form.last_name }}
+            </div>
+            <div class="login_box">
+                <div class="login_item_title">Email</div>
+                {{ form.email }}
+            </div>
+        <button type="submit" class="rates_button" id="edit_button">Edit</button>
+    <span><a href="{% url 'logout' %}">logout</a> or <a href="{% url 'password' request.user.pk %}">change password</a></span>
+    </form>
+{% endblock %}

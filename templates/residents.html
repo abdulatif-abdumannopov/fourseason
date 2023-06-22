@@ -82,20 +82,20 @@
         <a class="res_prev" onclick="plusSlideRes(-1)">&#10094</a>
         <a class="res_next" onclick="plusSlideRes(1)">&#10095</a>
     </div>
-    <div class="flex_form_box">
-        <form class="api_send_form" method="post">
+<div class="flex_form_box">
+    <form class="api_send_form" method="post">
         {% csrf_token %}
-            <div class="name_box">
-                {{ reservation_form.status }}
-                {{ reservation_form.firstname }}
-            </div>
-            {{ reservation_form.lastname }}
-            {{ reservation_form.email }}
-            {{ reservation_form.reservation }}
-            <div class="resident_but_box">
-                <button class="resident_button" type="submit">submit</button>
-            </div>
-        </form>
-    </div>
-
+        {{ form.user }}
+        <div class="name_box">
+            {{ form.status }}
+            {{ form.firstname }}
+        </div>
+        {{ form.lastname }}
+        {{ form.email }}
+        {{ form.reservation }}
+        <div class="resident_but_box">
+            <button class="resident_button" type="submit">submit</button>
+        </div>
+    </form>
+</div>
 {% endblock %}

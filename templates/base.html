@@ -16,6 +16,7 @@
     <link rel="stylesheet" href="{% static 'css/rates.css' %}">
     <link rel="stylesheet" href="{% static 'css/air-datepicker.css' %}">
     <link rel="stylesheet" href="{% static 'css/contact.css' %}">
+    <link rel="stylesheet" href="{% static 'css/login.css' %}">
 </head>
 <body>
     <header>
@@ -25,10 +26,26 @@
                 <li class="nav_links"><a href="{% url 'maldives' %}" class="nav_links_item">HOTEL & RESORTS</a></li>
                 <li class="nav_links"><a href="{% url 'jet' %}" class="nav_links_item">PRIVATE JET</a></li>
                 <li class="nav_links"><a href="{% url 'dining' %}" class="nav_links_item">DINING</a></li>
-                <li class="nav_links"><a href="{% url 'residents' %}" class="nav_links_item">RESIDENTS</a></li>
-                <li class="nav_links"><a href="{% url 'history' %}" class="nav_links_item">HISTORY</a></li>
+                {% if request.user.is_superuser %}
+                    <li class="nav_links"><a href="{% url 'edit' request.user.pk %}" class="nav_links_item">PROFILE</a></li>
+                    <li class="nav_links"><a href="{% url 'users' %}" class="nav_links_item">USERS</a></li>
+                {% else %}
+                    <li class="nav_links"><a href="{% url 'residents' %}" class="nav_links_item">RESIDENTS</a></li>
+                {% endif %}
+                {% if request.user.is_superuser %}
+                {% elif request.user.is_authenticated %}
+                    <li class="nav_links"><a href="{% url 'edit' request.user.pk %}" class="nav_links_item">PROFILE</a></li>
+                {% else %}
+                    <li class="nav_links"><a href="{% url 'history' %}" class="nav_links_item">HISTORY</a></li>
+                {% endif %}
             </ul>
-            <a class="nav_button" href="{% url 'rates' %}">CHECK RATES</a>
+            {% if request.user.is_authenticated and request.user.is_superuser or request.user.is_staff %}
+                <a class="nav_button" href="{% url 'admin_panel' %}">ADMIN PANEL</a>
+            {% elif request.user.is_authenticated %}
+                <a class="nav_button" href="{% url 'rates' %}">CHECK RATES</a>
+            {% else %}
+                <a class="nav_button" href="{% url 'register' %}">REGISTER</a>
+            {% endif %}
         </div>
         <div class="head_small">
             <a href="{% url 'home' %}"><img class="logo" src="{% static 'logo/four-seasons-hotels-limited-vector-logo.svg' %}" alt=""></a>
@@ -55,14 +72,21 @@
                 <div class="column_title">About</div>
                 <ul class="column_items">
                     <li><a href="{% url 'about' %}" class="column_items">about us</a></li>
-                    <li><a href="{% url 'jet' %}" class="column_items">jet</a></li>
+                    {% if request.user.is_authenticated %}
+                        <li><a href="{% url 'history' %}" class="column_items">history</a></li>
+                    {% else %}
+                        <li><a href="{% url 'jet' %}" class="column_items">jet</a></li>
+                    {% endif %}
                     <li><a href="{% url 'contact' %}" class="column_items">contact us</a></li>
                 </ul>
             </div>
             <div class="colum">
                 <div class="column_title">Reservations</div>
                 <ul class="column_items">
-                    <li><a href="{% url 'rates' %}" class="column_items">find a reservation</a></li>
+                        <li><a href="{% url 'rates' %}" class="column_items">find a reservation</a></li>
+                    {% if request.user.is_authenticated %}
+                        <li><a href="{% url 'jet' %}" class="column_items">jet</a></li>
+                    {% endif %}
                 </ul>
             </div>
             <div class="colum">
@@ -80,5 +104,6 @@
     <script src="{% static 'js/rates.js' %}"></script>
     <script src="{% static 'js/air-datepicker.js' %}"></script>
     <script src="{% static 'js/navigation.js' %}"></script>
+    <script src="//code.jivo.ru/widget/iJFIUWLVOF" async></script>
 </body>
 </html>

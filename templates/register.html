@@ -3,30 +3,27 @@
 {% block title %}Register{% endblock %}
 {% block content %}
 <link rel="stylesheet" href="{% static 'css/login.css' %}">
-    {% if request.user.is_superuser %}
     <form method="post" class="login_form">
         {% csrf_token %}
             <div class="login_box">
-                <div class="login_item_title">Username</div>
                 {{ form.username }}
             </div>
             <div class="login_box">
-                <div class="login_item_title">Password</div>
+                {{ form.first_name }}
+            </div>
+            <div class="login_box">
+                {{ form.last_name }}
+            </div>
+            <div class="login_box">
+                {{ form.email }}
+            </div>
+            <div class="login_box">
                 {{ form.password1 }}
             </div>
             <div class="login_box">
-                <div class="login_item_title">Confirm password</div>
                 {{ form.password2 }}
             </div>
-            <div class="confirm_box">
-                <span>Staff</span>{{ form.is_staff }}
-            </div>
-            <div class="confirm_box">
-                <span>Superuser</span>{{ form.is_superuser }}
-            </div>
-        <button type="submit" class="rates_button">Login</button>
+        <button type="submit" class="rates_button">Register</button>
+        <span>or <a href="{% url 'login' %}">login</a></span>
     </form>
-    {% else %}
-        <div class="rights">You don't have enough <a href="{% url 'logout' %}">rights</a></div>
-    {% endif %}
 {% endblock %}

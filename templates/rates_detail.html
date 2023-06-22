@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Password Change | Four Seasons{% endblock %}
+{% block content %}
+<link rel="stylesheet" href="{% static 'css/login.css' %}">
+    <form method="post" class="rate_form">
+    {% csrf_token %}
+        {{ error }}
+        <div class="rates_first_name_block">
+            <p class="rates_first_name">First Name</p>
+            {{ form.firstname }}
+        </div>
+        <div class="rates_second_name_block">
+            <p class="rates_second_name">Last Name</p>
+            {{ form.lastname }}
+        </div>
+        <div class="rates_second_name_block">
+            <p class="rates_second_name">Phone Number</p>
+            {{ form.phone }}
+        </div>
+        <div class="rates_passengers_box">
+            Passengers
+            <div class="passengers_list">
+                <div class="rates_adult_box">
+                    <div class="rates_adult_text">Adults</div>
+                    <div class="rates_count_box">
+                        {{ form.adult }}
+                    </div>
+                </div>
+                <div class="rates_adult_box">
+                    <div class="rates_adult_text">Children</div>
+                    <div class="rates_count_box">
+                        {{ form.children }}
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="rates_date_box">
+            <div class="rate_date_box_content">
+                <div class="rate_date_text">Check - in</div>
+                {{ form.start }}
+            </div>
+            <div class="rate_date_box_content">
+                <div class="rate_date_text">Check - out</div>
+                {{ form.end }}
+            </div>
+        </div>
+        <button type="submit" class="rates_button">Submit</button>
+    <span>or <a href="{% url 'delete_rates' pk %}">delete</a></span>
+    </form>
+{% endblock %}

@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
+from django.utils import timezone
 
 
 class ReservationModel(models.Model):
@@ -34,6 +35,7 @@ class ReservationModel(models.Model):
         return f'{self.status}.{self.lastname}{self.created}'
 
 class RatesModel(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE, verbose_name='User')
     firstname = models.CharField('First Name', max_length=100)
     lastname = models.CharField('Last Name', max_length=100)
     phone = models.CharField('Phone', max_length=150)
@@ -41,7 +43,7 @@ class RatesModel(models.Model):
     children = models.IntegerField('Children', default=0)
     start = models.CharField('Start', max_length=10)
     end = models.CharField('End', max_length=10)
-    created = models.DateTimeField('Created', auto_now_add=True)
+    created = models.DateTimeField('Created', auto_now=True)
     updated = models.DateTimeField('Updated', auto_now=True)
 
     class Meta:
@@ -84,3 +86,5 @@ class ContactModel(models.Model):
     def __str__(self) -> str:
         return f'{self.status}.{self.lastname}'
 
+class UserCustom(User):
+    pass

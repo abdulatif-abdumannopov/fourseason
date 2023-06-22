@@ -1,7 +1,8 @@
 from django import forms
 from django.core.exceptions import ValidationError
 from .models import *
-from django.contrib.auth.forms import AuthenticationForm, UserCreationForm
+from django.contrib.auth.forms import AuthenticationForm, UserCreationForm, SetPasswordForm
+
 
 class ReservationForm(forms.ModelForm):
     class Meta:
@@ -9,6 +10,12 @@ class ReservationForm(forms.ModelForm):
         fields = ['status', 'firstname', 'lastname', 'email', 'reservation']
 
         widgets = {
+            'user': forms.HiddenInput(attrs={
+                'class': 'resident_item',
+                'name': 'user',
+                'placeholder': 'User'
+            }
+            ),
             'status': forms.Select(attrs={
                 'class': 'resident_status_select',
                 'name': 'status',
@@ -40,6 +47,7 @@ class ReservationForm(forms.ModelForm):
             ),
         }
 
+
 class RatesForm(forms.ModelForm):
     class Meta:
         model = RatesModel
@@ -61,12 +69,12 @@ class RatesForm(forms.ModelForm):
                 'name': 'phone',
             }
             ),
-            'adult': forms.HiddenInput(attrs={
+            'adult': forms.TextInput(attrs={
                 'class': 'rates_count_input',
                 'name': 'adult_count',
             }
             ),
-            'children': forms.HiddenInput(attrs={
+            'children': forms.TextInput(attrs={
                 'class': 'rates_count_input_children',
                 'name': 'children_count',
             }
@@ -82,6 +90,7 @@ class RatesForm(forms.ModelForm):
             }
             ),
         }
+
 
 class ContactForm(forms.ModelForm):
     class Meta:
@@ -132,16 +141,41 @@ class ContactForm(forms.ModelForm):
         }
 
 
-class RegisterUserForm(UserCreationForm):
-    username = forms.CharField(label='Register', widget=forms.TextInput(attrs={'class': 'login_username'}))
-    password1 = forms.CharField(label='Password', widget=forms.PasswordInput(attrs={'class': 'login_password'}))
-    password2 = forms.CharField(label='Password', widget=forms.PasswordInput(attrs={'class': 'login_password'}))
-    is_staff = forms.BooleanField(label='Is Staff', required=True, widget=forms.CheckboxInput(attrs={'class': 'confirm_staff'}))
-    is_superuser = forms.BooleanField(label='Is Admin', required=False, widget=forms.CheckboxInput(attrs={'class': 'confirm_user'}))
+class RegisterBaseForm(UserCreationForm):
+    username = forms.CharField(label='Register',
+                               widget=forms.TextInput(attrs={'class': 'login_username', 'placeholder': 'Username'}))
+    password1 = forms.CharField(label='Password', widget=forms.PasswordInput(
+        attrs={'class': 'login_password', 'placeholder': 'Password'}))
+    password2 = forms.CharField(label='Password', widget=forms.PasswordInput(
+        attrs={'class': 'login_password', 'placeholder': 'Confirm Password'}))
 
     class Meta:
         model = User
-        fields = ['username', 'password1', 'password2', 'is_staff', 'is_superuser']
+        fields = ['username', 'password1', 'password2']
+
+
+class RegisterUserForm(RegisterBaseForm):
+    is_staff = forms.BooleanField(label='Is Staff', required=False,
+                                  widget=forms.CheckboxInput(attrs={'class': 'confirm_staff'}))
+    is_superuser = forms.BooleanField(label='Is Admin', required=False,
+                                      widget=forms.CheckboxInput(attrs={'class': 'confirm_user'}))
+
+    class Meta:
+        model = User
+        fields = RegisterBaseForm.Meta.fields + ['is_staff', 'is_superuser']
+
+
+class RegisterForm(RegisterBaseForm):
+    first_name = forms.CharField(label='Lastname',
+                                 widget=forms.TextInput(attrs={'class': 'resident_item', 'placeholder': 'First Name'}))
+    last_name = forms.CharField(label='Lastname',
+                                widget=forms.TextInput(attrs={'class': 'resident_item', 'placeholder': 'Last Name'}))
+    email = forms.CharField(label='Email',
+                            widget=forms.EmailInput(attrs={'class': 'resident_item', 'placeholder': 'Email'}))
+
+    class Meta:
+        model = User
+        fields = RegisterBaseForm.Meta.fields + ['first_name', 'last_name', 'email']
 
 
 class LoginUserForm(AuthenticationForm):
@@ -150,3 +184,38 @@ class LoginUserForm(AuthenticationForm):
 
     class Meta:
         model = User
+
+
+class UserBaseForm(forms.ModelForm):
+    username = forms.CharField(label='Register',
+                               widget=forms.TextInput(attrs={'class': 'resident_item', 'placeholder': 'Username'}))
+    first_name = forms.CharField(label='Lastname', required=False,
+                                 widget=forms.TextInput(attrs={'class': 'resident_item', 'placeholder': 'First Name'}))
+    last_name = forms.CharField(label='Lastname', required=False,
+                                widget=forms.TextInput(attrs={'class': 'resident_item', 'placeholder': 'Last Name'}))
+    email = forms.CharField(label='Lastname', required=False,
+                            widget=forms.EmailInput(attrs={'class': 'resident_item', 'placeholder': 'Email'}))
+
+    class Meta:
+        model = User
+        fields = ['username', 'first_name', 'last_name', 'email']
+
+    def clean_username(self):
+        username = self.cleaned_data['username']
+        if User.objects.exclude(pk=self.instance.pk).filter(username=username).exists():
+            raise ValidationError('Пользователь с таким именем уже существует.')
+        return username
+
+
+class UserChangeForm(UserBaseForm):
+    is_staff = forms.BooleanField(label='Is Staff', required=False,
+                                  widget=forms.CheckboxInput(attrs={'class': 'confirm_staff'}))
+    is_superuser = forms.BooleanField(label='Is Admin', required=False,
+                                      widget=forms.CheckboxInput(attrs={'class': 'confirm_user'}))
+
+    class Meta(UserBaseForm.Meta):
+        fields = UserBaseForm.Meta.fields + ['is_staff', 'is_superuser']
+
+
+class UserEditForm(UserBaseForm):
+    pass

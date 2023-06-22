@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="{% static 'css/login.css' %}">
 </head>
 <body>
-    {% include 'navigation.html' %}
+    {% include 'navigation_superuser.html' %}
     <div class="admin_panel_date_title"><a href="{% url 'admin_panel' %}">All objects</a></div>
     <div id="content-1" class="hidden_show">
         {% for i in res_page %}
@@ -56,7 +56,8 @@
     <div id="content-4" class="hidden_show hidden">
         {% for i in rates_page %}
                 <div class="appeal_box_reservation">
-                    <div class="appeal_name">{{ i.lastname }} {{ i.firstname }}</div>
+                    <a href="{% url 'edit' i.user.pk %}">{{ i.user }}</a>
+                    <div class="appeal_name"><a href="{% url 'rates_update' i.pk %}">{{ i.lastname }} {{ i.firstname }}</a></div>
                     <a href="tel: {{ i.phone }}" class="appeal_phone">{{ i.phone }}</a>
                     <div class="appeal_reservation">Start: <span>{{ i.start }}</span></div>
                     <div class="appeal_reservation">End: <span>{{ i.end }}</span></div>

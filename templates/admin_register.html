@@ -1,6 +1,6 @@
 {% extends 'base.html' %}
 {% load static %}
-{% block title %}Login{% endblock %}
+{% block title %}Register{% endblock %}
 {% block content %}
 <link rel="stylesheet" href="{% static 'css/login.css' %}">
     <form method="post" class="login_form">
@@ -11,9 +11,18 @@
             </div>
             <div class="login_box">
                 <div class="login_item_title">Password</div>
-                {{ form.password }}
+                {{ form.password1 }}
+            </div>
+            <div class="login_box">
+                <div class="login_item_title">Confirm password</div>
+                {{ form.password2 }}
+            </div>
+            <div class="confirm_box">
+                <span>Staff</span>{{ form.is_staff }}
+            </div>
+            <div class="confirm_box">
+                <span>Superuser</span>{{ form.is_superuser }}
             </div>
         <button type="submit" class="rates_button">Login</button>
-    <span>or <a href="{% url 'register' %}">register</a></span>
     </form>
 {% endblock %}

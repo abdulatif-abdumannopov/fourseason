@@ -1,0 +1,42 @@
+<ul class="pagination_container">
+  {% if page.has_previous %}
+    <li class="pagination_item_nav">
+      <a class="page-link" href="?{{ query_param }}={{ page.previous_page_number }}">&#10094</a>
+    </li>
+  {% endif %}
+
+  {% if page.number|add:'-3' > 1 %}
+    <li class="pagination_item">
+      <a class="page-link" href="?{{ query_param }}={{ page.number|add:'-4' }}">&hellip;</a>
+    </li>
+  {% endif %}
+
+    {% if page.paginator.num_pages > 1 %}
+      {% for i in page.paginator.page_range %}
+        {% if page.number == i %}
+          <li class="pagination_item active" aria-current="page">
+            <span class="page-link">
+              {{ i }}
+            </span>
+          </li>
+        {% elif i > page.number|add:'-4' and i < page.number|add:'4' %}
+          <li class="pagination_item">
+            <a class="page-link" href="?{{ query_param }}={{ i }}">{{ i }}</a>
+          </li>
+        {% endif %}
+      {% endfor %}
+    {% endif %}
+
+  {% if page.paginator.num_pages > page.number|add:'3' %}
+    <li class="pagination_item">
+      <a class="page-link" href="?{{ query_param }}={{ page.number|add:'4' }}">&hellip;</a>
+    </li>
+  {% endif %}
+
+  {% if page.has_next %}
+    <li class="pagination_item_nav">
+      <a class="page-link" href="?{{ query_param }}={{ page.next_page_number }}">&#10095</a>
+    </li>
+  {% else %}
+  {% endif %}
+</ul>

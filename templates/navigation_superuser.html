@@ -1,0 +1,19 @@
+{% load static %}
+<header>
+    <link rel="stylesheet" href="{% static 'css/admin_panel.css' %}">
+    <div class="admin_head">
+        <a href="{% url 'home' %}"><img src="{% static 'logo/four-seasons-hotels-limited-vector-logo.svg' %}" alt="logo" class="admin_header_logo"></a>
+        <div class="admin_menu">
+            <span></span>
+        </div>
+        <ul class="admin_nav_small">
+            <li class="admin_nav_items activated"><a href="{% url 'logout' %}" class="logout">{{ request.user.username }}</a></li>
+            <li class="admin_nav_items" data-index="1" onclick="showContent(1, this)">Reservation</li>
+            <li class="admin_nav_items" data-index="2" onclick="showContent(2, this)">Jet</li>
+            <li class="admin_nav_items" data-index="3" onclick="showContent(3, this)">Contact</li>
+            <li class="admin_nav_items" data-index="4" onclick="showContent(4, this)">Rates</li>
+            <li class="admin_nav_items"><a href="{% url 'admin_register' %}" class="register">Register</a></li>
+            <li class="admin_nav_items"><a href="{% url 'users' %}" class="register">Users</a></li>
+        </ul>
+    </div>
+</header>

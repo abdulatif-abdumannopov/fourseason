@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="{% static 'css/login.css' %}">
 </head>
 <body>
-    {% include 'navigation.html' %}
+    {% include 'navigation_superuser.html' %}
     <div class="admin_panel_date_title"><a href="{% url 'admin_full' %}">Today</a></div>
     <div id="content-1" class="hidden_show">
         {% for i in res_today %}

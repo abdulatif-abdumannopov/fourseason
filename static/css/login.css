@@ -41,6 +41,24 @@
     font-size: 22px;
     font-family: var(--neue-font);
 }
+.date_box_title, .date_box_value{
+    font-family: var(--neue-font);
+    font-size: 20px;
+}
+.date_box_value{
+    font-weight: 700;
+    color: #4f4b4b;
+}
+.date_box_date{
+    font-style: italic;
+    font-family: var(--neue-font);
+    font-size: 18px;
+}
+.date_box{
+    display: flex;
+    gap: 5px;
+    margin-top: 10px;
+}
 @media screen and (max-width: 560px) {
     .login_form {
         margin-top: 100px;
@@ -88,10 +106,15 @@
     padding: 20px 0 50px;
     margin-left: 20%;
 }
-.rights a{
+.rights a:first-child{
     text-decoration: none;
     color: #278d27;
 }
+.rights a:last-child{
+    text-decoration: none;
+    color: #7584dc;
+}
+
 
 @media screen and (max-width: 320px){
     .rates_button{

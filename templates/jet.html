@@ -87,6 +87,7 @@
     <div class="flex_form_box">
         <form class="api_send_form" method="post">
         {% csrf_token %}
+            {{ form.user }}
             <div class="name_box">
                 {{ form.status }}
                 {{ form.firstname }}

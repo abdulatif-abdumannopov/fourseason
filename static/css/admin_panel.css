@@ -85,14 +85,19 @@
     max-width: 1000px;
     margin: 0 auto;
     align-items: center;
+    top: 0;
 }
-.time, .time_plane, .time_rates{
+.delete_button_res, .delete_button_jet, .delete_button_con, .delete_button_rate{
+    font-size: 20px;
+    text-decoration: none;
+    color: #000;
+    width: min-content;
     position: absolute;
     right: 0;
-    font-size: 18px;
+    top: 0;
 }
-.time_plane{
-    border-bottom: 0;
+.time_rates{
+    font-size: 18px;
 }
 .appeal_text span{
     font-size: 18px;
@@ -160,13 +165,15 @@
     position: fixed;
     height: 100vh;
     z-index: 1;
-    top: -200%;
     right: 0;
-    padding: 100px 50px;
     background-color: #fff;
     gap: 20px;
 }
-.admin_nav_small li:first-child{
+.admin_nav_small{
+    top: -200%;
+    padding: 100px 50px;
+}
+.admin_nav_small li:first-child, .admin_nav_big li:first-child{
     margin-bottom: 20px;
     transition: .4s ease;
 }
@@ -174,7 +181,7 @@
     color: #747c74;
 }
 .admin_nav_small.act{
-    top: 0;
+    top: -2%;
     box-shadow: 1px 1px 12px 3px grey;
 }
 .logout{
@@ -188,18 +195,74 @@
 .register{
     color: #000;
     text-decoration: none;
-    opacity: 0;
     transition: .3s ease-out;
 }
-.register:hover{
-    opacity: 1;
+.completed_logo{
+    width: 20px;
+    height: 20px;
 }
-
+.user_container {
+	width: 100%;
+	margin-bottom: 20px;
+	border: 1px solid #dddddd;
+	border-collapse: collapse;
+}
+.user_container th {
+	font-weight: bold;
+	padding: 5px;
+	background: #efefef;
+	border: 1px solid #dddddd;
+    font-family: var(--neue-font);
+}
+.user_container td {
+	border: 1px solid #dddddd;
+	padding: 5px;
+    text-align: center;
+    vertical-align: middle;
+}
+.pagination_container{
+    display: flex;
+    gap: 15px;
+    align-items: center;
+    justify-content: center;
+}
+.pagination_item, .pagination_item_nav{
+    list-style: none;
+    font-size: 20px;
+}
+.pagination_item_nav{
+    margin-top: -3px;
+}
+.page-link, .user_change_link{
+    text-decoration: none;
+    color: #000;
+    transition: .3s ease-in-out;
+}
+.user_change_link:hover{
+    color: #278d27;
+}
+.pagination_item span{
+    text-decoration: underline;
+}
 
 @media screen and (max-width: 1000px){
     .appeal_box_contact{
         padding: 0 0 30px;
     }
+    .delete_button_con{
+        top: -25px;
+    }
+}
+.user_data_row.hidden{
+    display: none;
+}
+.user_search{
+    padding: 5px 10px 5px 20px;
+}
+.search_container{
+    display: flex;
+    justify-content: center;
+    margin-bottom: 30px;
 }
 @media screen and (max-width: 700px){
     .appeal_box{
@@ -217,20 +280,11 @@
     }
 }
 @media screen and (max-width: 620px){
-    .admin_head{
-        display: none;
-    }
-    .admin_head_small {
-        display: flex;
-        justify-content: space-between;
-        gap: 20px;
-        align-items: center;
-    }
     .appeal_box_jet{
-        padding: 30px 68px;
+        padding: 0;
     }
-    .time_plane{
-        position: unset;
+    .delete_button_jet{
+        top: -20px;
     }
 }
 @media screen and (max-width: 560px){
@@ -244,14 +298,16 @@
     .appeal_text span{
         font-size: 16px;
     }
+    .delete_button_res{
+        right: -35%;
+    }
+}
+@media screen and (max-width: 400px){
+    .appeal_email{
+        font-size: 0.7rem;
+    }
 }
 @media screen and (max-width: 300px){
-    .time, .time_plane{
-        bottom: 10px;
-        left: 0;
-        font-size: 14px;
-        font-weight: 700;
-    }
     .appeal_reservation{
         width: 90vw;
     }
@@ -274,9 +330,21 @@
     .admin_panel_date_title{
         font-size: 18px;
     }
-}
+    .delete_button_res{
+        right: 0;
+    }+}
 @media screen and (max-width: 200px){
     .time_rates{
         font-size: 12px;
+    }
+    .delete_button_con{
+        top: -30px;
+    }
+    .delete_button_res, .delete_button_rate{
+        top: -20px;
+    }
+    .user_search{
+        width: 85vw;
+        padding: 2px 5px;
     }
 }
